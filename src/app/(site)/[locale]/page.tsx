@@ -13,7 +13,15 @@ import { routing, type Locale } from '@/i18n/routing'
 import { siteDefaults } from '@/config/site'
 import tinScene from '../../../../seed/media/tin-2l-mockup-scene.png'
 import cartons from '../../../../seed/media/shipping-cartons-mockup.png'
-import stationery from '../../../../seed/media/stationery-mockup.png'
+import aerial from '../../../../seed/media/stock/tunisia-aerial-grove.jpg'
+import oliveTree from '../../../../seed/media/stock/tunisia-olive-tree.jpg'
+import oliveBranch from '../../../../seed/media/stock/tunisia-olive-cluster.jpg'
+import grovePath from '../../../../seed/media/stock/tunisia-grove-path.jpg'
+import picking from '../../../../seed/media/stock/harvest-picking.jpg'
+import sorting from '../../../../seed/media/stock/harvest-sorting.jpg'
+import spout from '../../../../seed/media/stock/mill-oil-spout.jpg'
+import olivesPile from '../../../../seed/media/stock/olives-pile.jpg'
+import { Journey } from '@/components/sections/Journey'
 import s from './home.module.css'
 
 type Props = { params: Promise<{ locale: Locale }> }
@@ -41,8 +49,8 @@ export default async function HomePage({ params }: Props) {
       <SiteHeader overlay />
       <main id="main">
         <Hero
-          image={tinScene}
-          imageAlt={c.hero.imageAlt}
+          image={aerial}
+          imageAlt={c.origin.galleryAlts[0]}
           label={c.hero.label}
           title={c.hero.title}
           text={c.hero.text}
@@ -72,10 +80,19 @@ export default async function HomePage({ params }: Props) {
               </ButtonLink>
             </div>
             <figure className={s.photo}>
-              <Image src={stationery} alt="" sizes="(max-width: 900px) 100vw, 50vw" placeholder="blur" />
+              <Image src={oliveTree} alt={c.origin.galleryAlts[1]} sizes="(max-width: 900px) 100vw, 50vw" placeholder="blur" className={s.tall} />
             </figure>
           </div>
         </section>
+
+        {/* From grove to tin */}
+        <Journey
+          id="journey-title"
+          label={c.journey.label}
+          title={c.journey.title}
+          lead={c.journey.lead}
+          steps={c.journey.steps.map((step, i) => ({ ...step, image: [picking, sorting, spout, tinScene][i] ?? tinScene }))}
+        />
 
         {/* How we work */}
         <section className={s.processBand} aria-labelledby="process-title">
@@ -139,6 +156,14 @@ export default async function HomePage({ params }: Props) {
               ))}
             </ul>
           </div>
+          <div className={`wrap ${s.gallery}`}>
+            <figure className={s.galleryWide}>
+              <Image src={grovePath} alt={c.origin.galleryAlts[2]} sizes="(max-width: 768px) 100vw, 60vw" placeholder="blur" />
+            </figure>
+            <figure>
+              <Image src={oliveBranch} alt={c.origin.galleryAlts[1]} sizes="(max-width: 768px) 100vw, 35vw" placeholder="blur" />
+            </figure>
+          </div>
         </section>
 
         {/* Export and partnerships */}
@@ -180,6 +205,7 @@ export default async function HomePage({ params }: Props) {
 
         {/* Closing call */}
         <section className={s.closing} aria-labelledby="closing-title">
+          <Image src={olivesPile} alt="" fill sizes="100vw" className={s.closingImg} />
           <div className={`wrap ${s.closingInner}`}>
             <h2 id="closing-title">{c.closing.title}</h2>
             <p>{c.closing.text}</p>
@@ -194,7 +220,7 @@ export default async function HomePage({ params }: Props) {
           </div>
         </section>
       </main>
-      <SiteFooter />
+      <SiteFooter credits={c.credits} />
     </>
   )
 }

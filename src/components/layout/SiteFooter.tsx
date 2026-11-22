@@ -7,7 +7,7 @@ import { LanguageSwitcher } from './LanguageSwitcher'
 import { navItems } from './navItems'
 import styles from './SiteFooter.module.css'
 
-export async function SiteFooter() {
+export async function SiteFooter({ credits }: { credits?: string } = {}) {
   const t = await getTranslations()
   const locale = (await getLocale()) as Locale
   const year = new Date().getFullYear()
@@ -58,6 +58,7 @@ export async function SiteFooter() {
         <span>
           © {year} {siteDefaults.company}. {t('footer.rights')}
         </span>
+        {credits ? <span>{credits}</span> : null}
       </div>
     </footer>
   )

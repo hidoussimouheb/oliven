@@ -84,4 +84,8 @@
   border-top: 1px solid rgb(245 236 205 / 0.2);
   font-size: 0.8125rem;
   color: rgb(245 236 205 / 0.75);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--s-2) var(--s-6);
 }

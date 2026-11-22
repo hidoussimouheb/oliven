@@ -1,0 +1,120 @@
+.section {
+  padding-block: var(--section-pad);
+  background: var(--surface);
+}
+.grid {
+  display: grid;
+  gap: var(--s-7);
+}
+.head {
+  display: grid;
+  gap: var(--s-4);
+}
+.steps {
+  list-style: none;
+  margin: var(--s-7) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--s-8);
+}
+.step {
+  display: grid;
+  gap: var(--s-3);
+  max-width: 34rem;
+}
+.step p {
+  color: var(--ink-muted);
+}
+.stepLabel {
+  font-size: var(--fs-small);
+  font-weight: 500;
+  color: var(--c-teal);
+}
+.stepLabel::before {
+  content: '';
+  display: inline-block;
+  inline-size: 1.75rem;
+  block-size: 1px;
+  margin-inline-end: var(--s-3);
+  vertical-align: middle;
+  background: var(--c-gold);
+}
+.inlinePhoto {
+  margin: 0 0 var(--s-3);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+.inlinePhoto img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+.stage {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--s-8);
+    align-items: start;
+  }
+  .stage {
+    display: block;
+    position: sticky;
+    top: 6rem;
+    order: 0;
+  }
+  .frame {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    max-height: calc(100svh - 8rem);
+    width: 100%;
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    background: var(--surface-sunk);
+  }
+  .stageImg {
+    object-fit: cover;
+    opacity: 0;
+    transform: scale(1.04);
+    transition:
+      opacity 700ms var(--ease),
+      transform 1200ms var(--ease);
+  }
+  .stageImg[data-on] {
+    opacity: 1;
+    transform: none;
+  }
+  .counter {
+    position: absolute;
+    inset-block-end: var(--s-4);
+    inset-inline-start: var(--s-4);
+    padding: var(--s-1) var(--s-3);
+    border-radius: var(--r-pill);
+    background: rgb(245 236 205 / 0.88);
+    color: var(--c-olive);
+    font-size: var(--fs-small);
+    font-variant-numeric: tabular-nums;
+  }
+  .inlinePhoto {
+    display: none;
+  }
+  .steps {
+    gap: 0;
+  }
+  .step {
+    min-height: 50svh;
+    align-content: center;
+  }
+  .stepLabel::before {
+    transition: inline-size var(--t-med) var(--ease);
+  }
+  .step[data-on] .stepLabel::before {
+    inline-size: 3.5rem;
+  }
+  .step:last-child {
+    min-height: 50svh;
+  }
+}

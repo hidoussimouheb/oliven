@@ -42,6 +42,15 @@
   height: auto;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+  transition: transform 900ms var(--ease);
+}
+.photo:hover img {
+  transform: scale(1.03);
+}
+@media (min-width: 900px) {
+  .photo img.tall {
+    aspect-ratio: 4 / 5;
+  }
 }
 
 /* How we work: teal band with the branch illustration under cream glass cards */
@@ -176,6 +185,40 @@
   font-size: var(--fs-small);
 }
 
+/* Origin photographs (Tunisia) */
+.gallery {
+  display: grid;
+  gap: var(--s-4);
+  padding-block-end: var(--section-pad);
+}
+@media (min-width: 768px) {
+  .gallery {
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+    gap: var(--s-5);
+  }
+}
+.gallery figure {
+  margin: 0;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+.gallery img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 900ms var(--ease);
+}
+.gallery figure:hover img {
+  transform: scale(1.03);
+}
+@media (min-width: 768px) {
+  .gallery img {
+    aspect-ratio: auto;
+    min-height: 26rem;
+  }
+}
+
 /* Buyer types */
 .buyers {
   list-style: none;
@@ -233,9 +276,23 @@
 
 /* Closing call to action */
 .closing {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   background: var(--c-plum);
   color: var(--c-cream);
-  padding-block: var(--section-pad);
+  padding-block: calc(var(--section-pad) * 1.4);
+}
+.closingImg {
+  z-index: -2;
+  object-fit: cover;
+}
+.closing::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(rgb(74 47 53 / 0.72), rgb(74 47 53 / 0.86));
 }
 .closingInner {
   display: grid;

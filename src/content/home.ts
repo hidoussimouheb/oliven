@@ -16,10 +16,12 @@ export type HomeContent = {
     lead: string
     items: { slug: string; volume: string; material: string; imageAlt?: string }[]
   }
-  origin: { label: string; title: string; text: string; points: string[] }
+  journey: { label: string; title: string; lead: string; steps: { label: string; title: string; text: string; imageAlt: string }[] }
+  origin: { label: string; title: string; text: string; points: string[]; galleryAlts: [string, string, string] }
   quality: { label: string; title: string; text: string; cta: string }
   partners: { label: string; title: string; lead: string; buyers: { title: string; text: string }[]; imageAlt: string }
   closing: { title: string; text: string }
+  credits: string
 }
 
 const formatSlugs = ['tin-5l', 'tin-2l', 'tin-500ml', 'bottle-500ml', 'jar-700ml'] as const
@@ -68,11 +70,23 @@ export const homeContent: Record<Locale, HomeContent> = {
         { slug: formatSlugs[4], volume: '700 ml', material: 'Glass jar' },
       ],
     },
+    journey: {
+      label: "From grove to tin",
+      title: "How the oil reaches your warehouse",
+      lead: "Four stages, all of them in Tunisia.",
+      steps: [
+        { label: "Harvest", title: "Picked in season", text: "Olives are picked across Tunisia from late autumn into winter, the main season for the crop.", imageAlt: "Olives being picked by hand from a tree" },
+        { label: "At the mill", title: "Cleaned before pressing", text: "At the mill the olives are washed and the leaves are taken out before pressing.", imageAlt: "Freshly harvested olives being sorted by hand" },
+        { label: "Pressing", title: "Mechanical extraction only", text: "Our partner mills in Tunisia extract the oil from the olives by mechanical means only.", imageAlt: "Olive oil running from a steel spout" },
+        { label: "Packing", title: "Filled under the óliven label", text: "The oil is filled into óliven tins and bottles in Tunisia, labelled in three languages and packed for export.", imageAlt: "óliven 2 litre tin on a wooden table beside olive branches" },
+      ],
+    },
     origin: {
       label: 'Origin',
       title: 'Grown and pressed in Tunisia',
       text: 'Tunisia is one of the largest olive oil exporters in the world, and olive growing there goes back to Carthage. óliven brings that oil to you in a finished, labelled pack.',
       points: ['Product of Tunisia', 'Packed in Tunisia', 'Labels in three languages'],
+      galleryAlts: ["Aerial view of olive plantations in Tunisia", "Olive branch with ripening olives in Tunisia", "Dirt path between olive trees in Tunisia"],
     },
     quality: {
       label: 'Quality',
@@ -96,6 +110,7 @@ export const homeContent: Record<Locale, HomeContent> = {
       title: 'Tell us your market and volumes',
       text: 'The quotation form takes about two minutes. Our export team replies by email.',
     },
+    credits: "Photographs: Strigoo Studios, Mohamed Fsili, Joana Abreu and Xavier von Erlach on Unsplash.",
   },
 
   fr: {
@@ -141,11 +156,23 @@ export const homeContent: Record<Locale, HomeContent> = {
         { slug: formatSlugs[4], volume: '700 ml', material: 'Bocal en verre' },
       ],
     },
+    journey: {
+      label: "Du verger au bidon",
+      title: "Le chemin de l'huile jusqu'à votre entrepôt",
+      lead: "Quatre étapes, toutes en Tunisie.",
+      steps: [
+        { label: "Récolte", title: "Cueillies en saison", text: "Les olives sont cueillies dans toute la Tunisie de la fin de l'automne jusqu'à l'hiver, la grande saison de la récolte.", imageAlt: "Cueillette d'olives à la main sur un arbre" },
+        { label: "Au moulin", title: "Nettoyées avant le pressage", text: "Au moulin, les olives sont lavées et débarrassées de leurs feuilles avant le pressage.", imageAlt: "Tri à la main d'olives fraîchement récoltées" },
+        { label: "Pressage", title: "Extraction uniquement mécanique", text: "Nos moulins partenaires en Tunisie extraient l'huile des olives uniquement par des procédés mécaniques.", imageAlt: "Huile d'olive coulant d'un bec en acier" },
+        { label: "Conditionnement", title: "Mise en bidon sous la marque óliven", text: "L'huile est mise en bidons et en bouteilles óliven en Tunisie, étiquetée en trois langues et emballée pour l'export.", imageAlt: "Bidon óliven de 2 litres sur une table en bois, à côté de branches d'olivier" },
+      ],
+    },
     origin: {
       label: 'Origine',
       title: 'Cultivée et pressée en Tunisie',
       text: "La Tunisie est l'un des plus grands exportateurs d'huile d'olive au monde, et l'oléiculture y remonte à Carthage. óliven vous apporte cette huile dans un conditionnement fini et étiqueté.",
       points: ['Produit de Tunisie', 'Conditionné en Tunisie', 'Étiquettes en trois langues'],
+      galleryAlts: ["Vue aérienne d'oliveraies en Tunisie", "Branche d'olivier aux olives mûrissantes en Tunisie", "Chemin de terre entre des oliviers en Tunisie"],
     },
     quality: {
       label: 'Qualité',
@@ -169,6 +196,7 @@ export const homeContent: Record<Locale, HomeContent> = {
       title: 'Indiquez-nous votre marché et vos volumes',
       text: 'Le formulaire de devis prend environ deux minutes. Notre service export vous répond par e-mail.',
     },
+    credits: "Photographies : Strigoo Studios, Mohamed Fsili, Joana Abreu et Xavier von Erlach sur Unsplash.",
   },
 
   ar: {
@@ -214,11 +242,23 @@ export const homeContent: Record<Locale, HomeContent> = {
         { slug: formatSlugs[4], volume: '700 مل', material: 'برطمان زجاجي' },
       ],
     },
+    journey: {
+      label: "من البستان إلى العلبة",
+      title: "كيف يصل الزيت إلى مستودعكم",
+      lead: "أربع مراحل، كلها في تونس.",
+      steps: [
+        { label: "الجني", title: "يُجنى في موسمه", text: "يُجنى الزيتون في مختلف أنحاء تونس من أواخر الخريف حتى الشتاء، وهو الموسم الرئيسي للمحصول.", imageAlt: "جني الزيتون باليد من الشجرة" },
+        { label: "في المعصرة", title: "يُنظَّف قبل العصر", text: "في المعصرة يُغسل الزيتون وتُزال أوراقه قبل العصر.", imageAlt: "فرز زيتون مقطوف حديثًا باليد" },
+        { label: "العصر", title: "استخراج ميكانيكي فقط", text: "تستخرج معاصرنا الشريكة في تونس الزيت من الزيتون بوسائل ميكانيكية فقط.", imageAlt: "زيت زيتون يسيل من صنبور معدني" },
+        { label: "التعبئة", title: "يُعبّأ تحت علامة أوليفن", text: "يُعبّأ الزيت في علب وقوارير أوليفن في تونس، وتُلصق عليه بطاقات بثلاث لغات، ثم يُغلَّف للتصدير.", imageAlt: "علبة أوليفن سعة 2 لتر على طاولة خشبية بجانب أغصان الزيتون" },
+      ],
+    },
     origin: {
       label: 'المنشأ',
       title: 'مزروع ومعصور في تونس',
       text: 'تونس من أكبر مصدّري زيت الزيتون في العالم، وتعود زراعة الزيتون فيها إلى عهد قرطاج. تقدّم لكم أوليفن هذا الزيت في عبوة جاهزة وموسومة.',
       points: ['منتج تونسي', 'معبّأ في تونس', 'ملصقات بثلاث لغات'],
+      galleryAlts: ["منظر جوي لبساتين الزيتون في تونس", "غصن زيتون بثمار تنضج في تونس", "طريق ترابي بين أشجار الزيتون في تونس"],
     },
     quality: {
       label: 'الجودة',
@@ -242,5 +282,6 @@ export const homeContent: Record<Locale, HomeContent> = {
       title: 'أخبرونا بسوقكم والكميات المطلوبة',
       text: 'يستغرق ملء نموذج عرض السعر نحو دقيقتين، ويردّ فريق التصدير عبر البريد الإلكتروني.',
     },
+    credits: "الصور: Strigoo Studios وMohamed Fsili وJoana Abreu وXavier von Erlach على Unsplash.",
   },
 }
