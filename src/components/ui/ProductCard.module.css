@@ -10,7 +10,7 @@
   transition: transform var(--t-med) var(--ease), box-shadow var(--t-med) var(--ease);
 }
 .card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-soft);
 }
 .media {
@@ -26,7 +26,7 @@
   transition: transform 600ms var(--ease);
 }
 .card:hover .media img {
-  transform: scale(1.03);
+  transform: scale(1.07) rotate(-1.5deg);
 }
 .placeholder {
   position: absolute;
@@ -46,6 +46,7 @@
   transform: none !important;
 }
 .body {
+  position: relative;
   display: grid;
   gap: var(--s-1);
   padding: var(--s-4) var(--s-5) var(--s-5);
@@ -61,4 +62,30 @@
 .meta {
   font-size: var(--fs-small);
   color: var(--ink-muted);
+}
+.go {
+  position: absolute;
+  inset-inline-end: var(--s-4);
+  bottom: var(--s-5);
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid var(--c-line-strong);
+  color: var(--ink);
+  transition: background-color var(--t-med) var(--ease), color var(--t-med) var(--ease), transform var(--t-med) var(--ease), border-color var(--t-med) var(--ease);
+}
+.card:hover .go,
+.card:focus-visible .go {
+  background: var(--c-olive);
+  border-color: var(--c-olive);
+  color: var(--c-cream);
+  transform: rotate(45deg);
+}
+:global([dir='rtl']) .go svg {
+  transform: scaleX(-1);
+}
+.body {
+  padding-inline-end: calc(var(--s-4) + 2.5rem);
 }

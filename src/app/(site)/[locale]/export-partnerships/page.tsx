@@ -86,7 +86,7 @@ export default async function ExportPage({ params }: Props) {
                 ))}
               </div>
             </div>
-            <figure className={s.photo}>
+            <figure className={s.photo} data-reveal="photo">
               <Image src={stationery} alt="" sizes="(max-width: 900px) 100vw, 50vw" placeholder="blur" />
             </figure>
           </div>

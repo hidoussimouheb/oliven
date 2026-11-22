@@ -255,6 +255,7 @@
 }
 .productMedia {
   margin: 0;
+  animation: product-in 900ms var(--ease) both;
   border-radius: var(--r-lg);
   overflow: hidden;
   background: var(--surface-sunk);
@@ -312,5 +313,22 @@
 @media (min-width: 1100px) {
   .four {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@keyframes product-in {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem) scale(0.98);
+  }
+}
+/* On wide screens the photo stays in view while the details scroll past it */
+@media (min-width: 900px) {
+  .productTop .split {
+    align-items: start;
+  }
+  .productTop .productMedia {
+    position: sticky;
+    top: 6.5rem;
   }
 }

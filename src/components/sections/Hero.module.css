@@ -11,6 +11,78 @@
   object-fit: cover;
   object-position: 70% 50%;
   z-index: -2;
+  animation: settle 2.4s var(--ease) both;
+}
+@keyframes settle {
+  from {
+    transform: scale(1.08);
+  }
+}
+.hero {
+  overflow: hidden;
+}
+.bigWord {
+  position: absolute;
+  z-index: -1;
+  inset-inline: 0;
+  bottom: -0.16em;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(5.5rem, 19vw, 19rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+  text-align: center;
+  color: rgb(245 236 205 / 0.2);
+  pointer-events: none;
+  user-select: none;
+  animation: rise 1.4s 200ms var(--ease) both;
+}
+:global(html[lang='ar']) .bigWord {
+  font-family: var(--font-display-ar);
+  font-weight: 600;
+  letter-spacing: 0;
+  bottom: -0.05em;
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(30%);
+  }
+}
+/* The word drifts sideways as the page scrolls, where the browser supports it */
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .bigWord {
+      animation: rise 1.4s 200ms var(--ease) both, drift linear both;
+      animation-timeline: auto, scroll(root);
+      animation-range: normal, 0 100vh;
+    }
+    :global([dir='rtl']) .bigWord {
+      animation-name: rise, drift-rtl;
+    }
+  }
+}
+@keyframes drift {
+  to {
+    translate: -12% 0;
+  }
+}
+@keyframes drift-rtl {
+  to {
+    translate: 12% 0;
+  }
+}
+.badge {
+  position: absolute;
+  inset-inline-end: max(var(--gutter-wide, 2rem), env(safe-area-inset-right, 0px));
+  bottom: 2.5rem;
+  animation: enter 900ms 400ms var(--ease) both;
+}
+@media (max-width: 899px) {
+  .badge {
+    display: none;
+  }
 }
 .hero::before {
   content: '';

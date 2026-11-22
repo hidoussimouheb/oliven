@@ -137,14 +137,30 @@ textarea {
   }
 }
 
-/* Small tracked label used above headings. Arabic is never letter-spaced. */
+/* Small label above headings, set in an outlined pill. Arabic is never letter-spaced. */
 .label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  width: fit-content;
+  padding: 0.4em 0.95em 0.38em;
+  border: 1px solid currentColor;
+  border-radius: var(--r-pill);
   font-family: var(--font-body);
   font-size: var(--fs-label);
   font-weight: 500;
-  letter-spacing: var(--tracking-label);
+  line-height: 1.2;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--c-teal);
+}
+.label::before {
+  content: '';
+  width: 0.45em;
+  height: 0.45em;
+  border-radius: 50%;
+  background: var(--c-gold);
+  flex: none;
 }
 html[lang='ar'] .label {
   font-family: var(--font-body-ar);
@@ -167,5 +183,44 @@ html[lang='ar'] .label {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/*
+ * Scroll reveals. Pure CSS (scroll-driven animations), so nothing is hidden when the browser
+ * lacks support or the visitor asks for reduced motion: the content simply shows.
+ */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(2.5rem);
+  }
+}
+@keyframes reveal-photo {
+  from {
+    clip-path: inset(12% 6% 0 6% round var(--r-lg));
+  }
+}
+@keyframes reveal-zoom {
+  from {
+    transform: scale(1.18);
+  }
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    [data-reveal] {
+      animation: reveal-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 75%;
+    }
+    [data-reveal='photo'] {
+      animation-name: reveal-photo;
+      animation-range: entry 0% cover 40%;
+    }
+    [data-reveal='photo'] img {
+      animation: reveal-zoom linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 60%;
+    }
   }
 }

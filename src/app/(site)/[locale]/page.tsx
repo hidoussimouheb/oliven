@@ -22,6 +22,8 @@ import sorting from '../../../../seed/media/stock/harvest-sorting.jpg'
 import spout from '../../../../seed/media/stock/mill-oil-spout.jpg'
 import olivesPile from '../../../../seed/media/stock/olives-pile.jpg'
 import { Journey } from '@/components/sections/Journey'
+import { OriginMarquee } from '@/components/motion/OriginMarquee'
+import { RotatingBadge } from '@/components/motion/RotatingBadge'
 import s from './home.module.css'
 
 type Props = { params: Promise<{ locale: Locale }> }
@@ -43,6 +45,7 @@ export default async function HomePage({ params }: Props) {
   setRequestLocale(locale)
   const t = await getTranslations()
   const c = homeContent[locale]
+  const country = locale === 'ar' ? 'تونس' : locale === 'fr' ? 'Tunisie' : 'Tunisia'
 
   return (
     <>
@@ -55,6 +58,8 @@ export default async function HomePage({ params }: Props) {
           title={c.hero.title}
           text={c.hero.text}
           facts={c.hero.facts}
+          bigWord={country}
+          badge={<RotatingBadge href="/contact" text={t('cta.requestQuotation')} />}
           actions={
             <>
               <ButtonLink href="/contact">{t('cta.requestQuotation')}</ButtonLink>
@@ -79,7 +84,7 @@ export default async function HomePage({ params }: Props) {
                 {t('nav.story')}
               </ButtonLink>
             </div>
-            <figure className={s.photo}>
+            <figure className={s.photo} data-reveal="photo">
               <Image src={oliveTree} alt={c.origin.galleryAlts[1]} sizes="(max-width: 900px) 100vw, 50vw" placeholder="blur" className={s.tall} />
             </figure>
           </div>
@@ -103,10 +108,10 @@ export default async function HomePage({ params }: Props) {
             </div>
             <ol className={s.steps}>
               {c.process.steps.map((step, i) => (
-                <li key={step.title}>
+                <li key={step.title} data-reveal>
                   <GlassPanel tone="cream" className={s.step}>
                     <span className={s.stepNumber} aria-hidden="true">
-                      {i + 1}
+                      {String(i + 1).padStart(2, '0')}
                     </span>
                     <h3>{step.title}</h3>
                     <p>{step.text}</p>
@@ -143,9 +148,6 @@ export default async function HomePage({ params }: Props) {
         <section className={s.originBand} aria-labelledby="origin-title">
           <div className={`wrap ${s.section} ${s.origin}`}>
             <span className="label">{c.origin.label}</span>
-            <p className={s.originWord} aria-hidden="true">
-              {locale === 'ar' ? 'تونس' : locale === 'fr' ? 'Tunisie' : 'Tunisia'}
-            </p>
             <h2 id="origin-title" className={s.originTitle}>
               {c.origin.title}
             </h2>
@@ -156,14 +158,15 @@ export default async function HomePage({ params }: Props) {
               ))}
             </ul>
           </div>
-          <div className={`wrap ${s.gallery}`}>
-            <figure className={s.galleryWide}>
-              <Image src={grovePath} alt={c.origin.galleryAlts[2]} sizes="(max-width: 768px) 100vw, 60vw" placeholder="blur" />
-            </figure>
-            <figure>
-              <Image src={oliveBranch} alt={c.origin.galleryAlts[1]} sizes="(max-width: 768px) 100vw, 35vw" placeholder="blur" />
-            </figure>
-          </div>
+          <OriginMarquee
+            words={[country, ...c.origin.points]}
+            photos={[
+              { src: grovePath, alt: c.origin.galleryAlts[2] },
+              { src: oliveBranch, alt: c.origin.galleryAlts[1] },
+              { src: aerial, alt: c.origin.galleryAlts[0] },
+            ]}
+          />
+          <div className={s.originSpacer} />
         </section>
 
         {/* Export and partnerships */}
@@ -173,7 +176,7 @@ export default async function HomePage({ params }: Props) {
               <SectionHeader id="partners-title" label={c.partners.label} title={c.partners.title} lead={c.partners.lead} />
               <ul className={s.buyers}>
                 {c.partners.buyers.map((b) => (
-                  <li key={b.title}>
+                  <li key={b.title} data-reveal>
                     <h3>{b.title}</h3>
                     <p>{b.text}</p>
                   </li>
@@ -183,7 +186,7 @@ export default async function HomePage({ params }: Props) {
                 {t('nav.export')}
               </ButtonLink>
             </div>
-            <figure className={s.photo}>
+            <figure className={s.photo} data-reveal="photo">
               <Image src={cartons} alt={c.partners.imageAlt} sizes="(max-width: 900px) 100vw, 50vw" placeholder="blur" />
             </figure>
           </div>
@@ -191,7 +194,7 @@ export default async function HomePage({ params }: Props) {
 
         {/* Quality */}
         <section className={s.qualityBand} aria-labelledby="quality-title">
-          <div className={`wrap ${s.quality}`}>
+          <div className={`wrap ${s.quality}`} data-reveal>
             <div>
               <span className="label">{c.quality.label}</span>
               <h2 id="quality-title">{c.quality.title}</h2>

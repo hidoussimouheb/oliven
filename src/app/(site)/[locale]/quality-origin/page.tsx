@@ -55,10 +55,10 @@ export default async function QualityPage({ params }: Props) {
             </ul>
           </div>
           <div className={`wrap ${s.pair}`} style={{ marginTop: 'var(--s-7)' }}>
-            <figure>
+            <figure data-reveal="photo">
               <Image src={aerial} alt={c.galleryAlts[1]} sizes="(max-width: 768px) 100vw, 50vw" placeholder="blur" />
             </figure>
-            <figure>
+            <figure data-reveal="photo">
               <Image src={cluster} alt={c.galleryAlts[0]} sizes="(max-width: 768px) 100vw, 50vw" placeholder="blur" />
             </figure>
           </div>
@@ -109,7 +109,7 @@ export default async function QualityPage({ params }: Props) {
                 {c.documents.cta}
               </ButtonLink>
             </div>
-            <figure className={s.photo}>
+            <figure className={s.photo} data-reveal="photo">
               <Image src={pourBowl} alt="" sizes="(max-width: 900px) 100vw, 50vw" placeholder="blur" />
             </figure>
           </div>

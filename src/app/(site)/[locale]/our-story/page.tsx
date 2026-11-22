@@ -49,7 +49,7 @@ export default async function StoryPage({ params }: Props) {
                 ))}
               </div>
             </div>
-            <figure className={s.photo}>
+            <figure className={s.photo} data-reveal="photo">
               <Image src={branch} alt={c.tunisia.imageAlt} sizes="(max-width: 900px) 100vw, 50vw" placeholder="blur" />
             </figure>
           </div>
@@ -70,7 +70,7 @@ export default async function StoryPage({ params }: Props) {
                 ))}
               </ul>
             </div>
-            <figure className={s.photo}>
+            <figure className={s.photo} data-reveal="photo">
               <Image src={handOlives} alt="" sizes="(max-width: 900px) 100vw, 50vw" placeholder="blur" />
             </figure>
           </div>
@@ -89,7 +89,7 @@ export default async function StoryPage({ params }: Props) {
                 {t('nav.oliveOil')}
               </ButtonLink>
             </div>
-            <figure className={s.photo}>
+            <figure className={s.photo} data-reveal="photo">
               <Image src={cartons} alt={c.label.imageAlt} sizes="(max-width: 900px) 100vw, 50vw" placeholder="blur" />
             </figure>
           </div>

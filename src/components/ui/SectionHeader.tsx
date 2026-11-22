@@ -13,7 +13,7 @@ type Props = {
 export function SectionHeader({ label, title, lead, level = 'h2', id, align = 'start' }: Props) {
   const H = level
   return (
-    <div className={[styles.head, align === 'center' && styles.center].filter(Boolean).join(' ')}>
+    <div className={[styles.head, align === 'center' && styles.center].filter(Boolean).join(' ')} data-reveal>
       {label ? <span className="label">{label}</span> : null}
       <H id={id}>{title}</H>
       {lead ? <p className="lead">{lead}</p> : null}
