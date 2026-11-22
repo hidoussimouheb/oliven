@@ -67,6 +67,7 @@ export default async function ProductPage({ params }: Props) {
                   items={[
                     { term: c.specs.volume, value: p.volume },
                     { term: c.specs.packaging, value: p.material },
+                    { term: c.specs.grade, value: c.specs.gradeValue },
                     { term: c.specs.origin, value: c.specs.originValue },
                     { term: c.specs.extraction, value: c.specs.extractionValue },
                   ]}

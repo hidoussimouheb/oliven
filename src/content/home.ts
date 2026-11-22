@@ -3,7 +3,7 @@ import type { Locale } from '@/i18n/routing'
 /**
  * Homepage copy, one block per language.
  * Shaped like the future "Homepage" global so Phase 8 can move it into the CMS without changing the page.
- * Rule: no quality claims ("extra virgin", awards, certifications) until the client's documents are uploaded.
+ * Rule: "extra virgin" is confirmed by the client's lab check (Nov 2026). No organic claim, awards or certifications without a certificate.
  */
 export type HomeContent = {
   meta: { title: string; description: string }
@@ -90,8 +90,8 @@ export const homeContent: Record<Locale, HomeContent> = {
     },
     quality: {
       label: 'Quality',
-      title: 'Documents before you buy',
-      text: 'A laboratory analysis of our olive oil is available to buyers on request. Ask for it with your quotation and we send it with our reply.',
+      title: 'Extra virgin, checked by a laboratory',
+      text: 'Our oil is extra virgin olive oil, and a laboratory analysis confirms it. Ask for a copy with your quotation and we send it with our reply.',
       cta: 'Ask for the analysis',
     },
     partners: {
@@ -176,8 +176,8 @@ export const homeContent: Record<Locale, HomeContent> = {
     },
     quality: {
       label: 'Qualité',
-      title: 'Les documents avant l’achat',
-      text: "Une analyse de laboratoire de notre huile d'olive est disponible pour les acheteurs sur demande. Demandez-la avec votre devis, nous l'envoyons avec notre réponse.",
+      title: 'Vierge extra, vérifiée en laboratoire',
+      text: "Notre huile est une huile d'olive vierge extra, et une analyse de laboratoire le confirme. Demandez-en une copie avec votre devis, nous l'envoyons avec notre réponse.",
       cta: "Demander l'analyse",
     },
     partners: {
@@ -262,8 +262,8 @@ export const homeContent: Record<Locale, HomeContent> = {
     },
     quality: {
       label: 'الجودة',
-      title: 'الوثائق قبل الشراء',
-      text: 'تحليل مخبري لزيت الزيتون لدينا متاح للمشترين عند الطلب. اطلبوه مع عرض السعر، ونرسله مع ردّنا.',
+      title: 'بكر ممتاز، بتحقق مخبري',
+      text: 'زيتنا زيت زيتون بكر ممتاز، ويؤكد ذلك تحليل مخبري. اطلبوا نسخة منه مع عرض السعر، ونرسلها مع ردّنا.',
       cta: 'اطلب التحليل',
     },
     partners: {

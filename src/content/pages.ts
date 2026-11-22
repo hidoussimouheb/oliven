@@ -3,7 +3,7 @@ import type { Locale } from '@/i18n/routing'
 /**
  * Copy for the inner pages, one block per language.
  * Shaped like the future "Pages" collection (Phase 8).
- * Same rules as the homepage: no "extra virgin", certification or award claims until documents are uploaded;
+ * Same rules as the homepage: "extra virgin" is confirmed by the client's lab check (Nov 2026); no organic, certification or award claims without a certificate;
  * no claim that óliven owns groves or mills; no promised quantities, lead times or destinations.
  */
 
@@ -22,7 +22,7 @@ export type RangePage = {
   meta: { title: string; description: string }
   hero: Hero
   note: string
-  specs: { volume: string; packaging: string; origin: string; originValue: string; extraction: string; extractionValue: string }
+  specs: { volume: string; packaging: string; origin: string; originValue: string; grade: string; gradeValue: string; extraction: string; extractionValue: string }
   product: { back: string; others: string; quoteLead: string }
 }
 
@@ -189,6 +189,8 @@ export const rangePage: Record<Locale, RangePage> = {
       packaging: 'Packaging',
       origin: 'Origin',
       originValue: 'Product of Tunisia',
+      grade: 'Grade',
+      gradeValue: 'Extra virgin olive oil',
       extraction: 'Extraction',
       extractionValue: 'From olives, by mechanical means only (as stated on the label)',
     },
@@ -211,6 +213,8 @@ export const rangePage: Record<Locale, RangePage> = {
       packaging: 'Conditionnement',
       origin: 'Origine',
       originValue: 'Produit de Tunisie',
+      grade: 'Catégorie',
+      gradeValue: "Huile d'olive vierge extra",
       extraction: 'Extraction',
       extractionValue: "À partir d'olives, par des procédés uniquement mécaniques (mention de l'étiquette)",
     },
@@ -234,6 +238,8 @@ export const rangePage: Record<Locale, RangePage> = {
       origin: 'المنشأ',
       originValue: 'منتج تونسي',
       extraction: 'الاستخراج',
+      grade: 'الصنف',
+      gradeValue: 'زيت زيتون بكر ممتاز',
       extractionValue: 'من الزيتون، بوسائل ميكانيكية فقط (كما هو مذكور على الملصق)',
     },
     product: { back: 'كل الأحجام', others: 'أحجام أخرى', quoteLead: 'تتوقف الأسعار والكميات على طلبكم. اطلبوا عرض سعر وسنرد عليكم بالبريد الإلكتروني.' },
@@ -281,8 +287,8 @@ export const qualityPage: Record<Locale, QualityPage> = {
     },
     documents: {
       label: 'Documents',
-      title: 'Laboratory analysis on request',
-      paragraphs: ['A laboratory analysis of our olive oil is available to buyers. Ask for it in your quotation request and we send it with our reply.'],
+      title: 'Extra virgin, checked by a laboratory',
+      paragraphs: ['A laboratory analysis confirms that our oil is extra virgin olive oil. Buyers can ask for a copy in their quotation request and we send it with our reply.'],
       cta: 'Ask for the analysis',
     },
     galleryAlts: ['Olive branch with ripening olives in Tunisia', 'Aerial view of olive plantations in Tunisia'],
@@ -327,8 +333,8 @@ export const qualityPage: Record<Locale, QualityPage> = {
     },
     documents: {
       label: 'Documents',
-      title: 'Analyse de laboratoire sur demande',
-      paragraphs: ["Une analyse de laboratoire de notre huile d'olive est disponible pour les acheteurs. Demandez-la dans votre demande de devis et nous l'envoyons avec notre réponse."],
+      title: 'Vierge extra, vérifiée en laboratoire',
+      paragraphs: ["Une analyse de laboratoire confirme que notre huile est une huile d'olive vierge extra. Les acheteurs peuvent en demander une copie dans leur demande de devis, nous l'envoyons avec notre réponse."],
       cta: "Demander l'analyse",
     },
     galleryAlts: ["Branche d'olivier aux olives mûrissantes en Tunisie", "Vue aérienne d'oliveraies en Tunisie"],
@@ -373,8 +379,8 @@ export const qualityPage: Record<Locale, QualityPage> = {
     },
     documents: {
       label: 'الوثائق',
-      title: 'تحليل مخبري عند الطلب',
-      paragraphs: ['يتوفر للمشترين تحليل مخبري لزيت الزيتون الذي نبيعه. اطلبوه مع طلب عرض السعر وسنرسله مع ردّنا.'],
+      title: 'بكر ممتاز، بتحقق مخبري',
+      paragraphs: ['يؤكد تحليل مخبري أن زيتنا زيت زيتون بكر ممتاز. يمكن للمشترين طلب نسخة منه مع طلب عرض السعر، وسنرسلها مع ردّنا.'],
       cta: 'اطلبوا التحليل',
     },
     galleryAlts: ['غصن زيتون بثمار تنضج في تونس', 'منظر جوي لبساتين الزيتون في تونس'],
