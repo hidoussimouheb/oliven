@@ -51,7 +51,36 @@
     "chooseOne": "Choose one",
     "send": "Send request",
     "errorEmail": "Enter an email address, for example name@company.com.",
-    "errorRequired": "This field is required."
+    "errorRequired": "This field is required.",
+    "countryPlaceholder": "Choose your country",
+    "formats": "Formats you are interested in",
+    "quantity": "Estimated quantity",
+    "unit": "Unit",
+    "units": {
+      "units": "Tins, bottles or jars",
+      "cartons": "Cartons",
+      "litres": "Litres"
+    },
+    "destination": "Destination city or port",
+    "businessTypes": {
+      "importer": "Importer",
+      "distributor": "Distributor or wholesaler",
+      "retail": "Retail chain",
+      "specialty": "Specialty food shop",
+      "foodservice": "Restaurant or caterer",
+      "other": "Other"
+    },
+    "consent": "I agree that óliven keeps these details to answer my request.",
+    "privacyLink": "Read the privacy policy",
+    "sending": "Sending…",
+    "successTitle": "Request received",
+    "successText": "Thank you. Your request is saved and our export team will reply to {email}.",
+    "errorSummary": "Some fields need attention. Check the messages below.",
+    "errorGeneric": "We could not save your request. Try again in a moment, or email us at {email}.",
+    "errorRate": "Too many requests from this connection. Try again later, or email us at {email}.",
+    "errorNumber": "Enter a number greater than zero.",
+    "errorConsent": "Tick this box so we can answer your request.",
+    "errorFormats": "Choose at least one format."
   },
   "footer": {
     "about": "óliven is an olive oil brand from Tunisia, supplied in tins and glass to buyers abroad by QARTENO TRADING.",
@@ -65,5 +94,15 @@
   "styleGuide": {
     "title": "Design system",
     "intro": "The components, colours and type the óliven site is built from. This page is for the team and is not indexed."
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "Request a quotation",
+    "lead": "Tell us about your company and what you need. Our export team replies by email.",
+    "detailsTitle": "Contact details",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "metaDescription": "Request a quotation for óliven olive oil from Tunisia. Tell us your market, formats and quantities."
   }
 }

@@ -67,6 +67,7 @@ export interface Config {
   };
   blocks: {};
   collections: {
+    inquiries: Inquiry;
     users: User;
     media: Media;
     'payload-kv': PayloadKv;
@@ -76,6 +77,7 @@ export interface Config {
   };
   collectionsJoins: {};
   collectionsSelect: {
+    inquiries: InquiriesSelect<false> | InquiriesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
@@ -116,6 +118,45 @@ export interface UserAuthOperations {
     email: string;
     password: string;
   };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "inquiries".
+ */
+export interface Inquiry {
+  id: number;
+  status: 'new' | 'contacted' | 'qualified' | 'closed';
+  fullName: string;
+  company: string;
+  email: string;
+  phone?: string | null;
+  /**
+   * ISO country code
+   */
+  country: string;
+  businessType: 'importer' | 'distributor' | 'retail' | 'specialty' | 'foodservice' | 'other';
+  formats?: ('tin-5l' | 'tin-2l' | 'tin-500ml' | 'bottle-500ml' | 'jar-700ml')[] | null;
+  quantity?: number | null;
+  quantityUnit?: ('units' | 'cartons' | 'litres') | null;
+  destination?: string | null;
+  message?: string | null;
+  notes?:
+    | {
+        note: string;
+        author?: string | null;
+        date?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  locale?: string | null;
+  sourcePage?: string | null;
+  consentAt?: string | null;
+  /**
+   * Salted hash, not the raw IP
+   */
+  ipHash?: string | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -218,6 +259,10 @@ export interface PayloadLockedDocument {
   id: number;
   document?:
     | ({
+        relationTo: 'inquiries';
+        value: number | Inquiry;
+      } | null)
+    | ({
         relationTo: 'users';
         value: number | User;
       } | null)
@@ -266,6 +311,38 @@ export interface PayloadMigration {
   batch?: number | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "inquiries_select".
+ */
+export interface InquiriesSelect<T extends boolean = true> {
+  status?: T;
+  fullName?: T;
+  company?: T;
+  email?: T;
+  phone?: T;
+  country?: T;
+  businessType?: T;
+  formats?: T;
+  quantity?: T;
+  quantityUnit?: T;
+  destination?: T;
+  message?: T;
+  notes?:
+    | T
+    | {
+        note?: T;
+        author?: T;
+        date?: T;
+        id?: T;
+      };
+  locale?: T;
+  sourcePage?: T;
+  consentAt?: T;
+  ipHash?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

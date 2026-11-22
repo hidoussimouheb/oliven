@@ -1,0 +1,316 @@
+/* Shared layout for inner pages. Logical properties throughout for Arabic. */
+.section {
+  padding-block: var(--section-pad);
+}
+.alt {
+  background: var(--surface);
+}
+.sunk {
+  background: var(--surface-sunk);
+}
+.stack {
+  display: grid;
+  gap: var(--s-5);
+  justify-items: start;
+}
+.split {
+  display: grid;
+  gap: var(--s-7);
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .split {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--s-8);
+  }
+  .reverse > .photo {
+    order: -1;
+  }
+}
+.text {
+  display: grid;
+  gap: var(--s-5);
+  justify-items: start;
+  min-width: 0;
+}
+.prose {
+  display: grid;
+  gap: var(--s-4);
+  max-width: var(--measure);
+  color: var(--ink-muted);
+}
+.photo {
+  margin: 0;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--surface-sunk);
+}
+.photo img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 900ms var(--ease);
+}
+.photo:hover img {
+  transform: scale(1.03);
+}
+.points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+}
+.points li {
+  padding: var(--s-2) var(--s-4);
+  border: 1px solid var(--c-line-strong);
+  border-radius: var(--r-pill);
+  font-size: var(--fs-small);
+}
+.bullets {
+  margin: 0;
+  padding-inline-start: 1.2em;
+  display: grid;
+  gap: var(--s-2);
+  color: var(--ink-muted);
+}
+.bullets li::marker {
+  color: var(--c-gold);
+}
+
+/* Product grid */
+.products {
+  margin-top: var(--s-7);
+  display: grid;
+  gap: var(--s-5);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (min-width: 768px) {
+  .products {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1100px) {
+  .products {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+.note {
+  margin-top: var(--s-7);
+  padding: var(--s-5) var(--s-6);
+  border-radius: var(--r-md);
+  border: 1px solid var(--c-line-strong);
+  max-width: 48rem;
+  color: var(--ink-muted);
+}
+
+/* Two photographs side by side */
+.pair {
+  display: grid;
+  gap: var(--s-4);
+}
+@media (min-width: 768px) {
+  .pair {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--s-5);
+  }
+}
+.pair figure {
+  margin: 0;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+.pair img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  transition: transform 900ms var(--ease);
+}
+.pair figure:hover img {
+  transform: scale(1.03);
+}
+
+/* Label facts */
+.statement {
+  margin: 0;
+  padding-inline-start: var(--s-5);
+  border-inline-start: 2px solid var(--c-gold);
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  line-height: 1.35;
+  max-width: 34ch;
+}
+:global(html[lang='ar']) .statement {
+  font-family: var(--font-display-ar);
+}
+.nutrition {
+  width: 100%;
+  max-width: 30rem;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+.nutrition caption {
+  text-align: start;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  padding-block-end: var(--s-3);
+}
+.nutrition th,
+.nutrition td {
+  padding: var(--s-2) 0;
+  border-block-end: 1px solid var(--c-line);
+  text-align: start;
+  font-weight: 400;
+}
+.nutrition td {
+  text-align: end;
+  white-space: nowrap;
+  padding-inline-start: var(--s-4);
+}
+.nutrition thead th {
+  font-size: var(--fs-small);
+  color: var(--ink-muted);
+}
+.nutrition .sub {
+  padding-inline-start: var(--s-5);
+  color: var(--ink-muted);
+}
+
+/* Steps (export page) */
+.steps {
+  list-style: none;
+  margin: var(--s-7) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--s-5);
+  counter-reset: step;
+}
+@media (min-width: 768px) {
+  .steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.steps li {
+  display: grid;
+  align-content: start;
+  gap: var(--s-3);
+  padding-block-start: var(--s-4);
+  border-block-start: 1px solid var(--c-line-strong);
+}
+.steps li::before {
+  counter-increment: step;
+  content: counter(step);
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--c-gold);
+}
+.steps p,
+.buyers p {
+  color: var(--ink-muted);
+}
+.buyers {
+  list-style: none;
+  margin: var(--s-7) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--s-5);
+}
+@media (min-width: 640px) {
+  .buyers {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1100px) {
+  .buyers {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+.buyers li {
+  display: grid;
+  gap: var(--s-2);
+  padding: var(--s-5);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  border: 1px solid var(--c-line);
+}
+.buyers h3,
+.steps h3 {
+  font-size: 1.25rem;
+}
+
+/* Product page */
+.productTop {
+  padding-block: var(--s-7) var(--section-pad);
+}
+.crumb {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: var(--fs-small);
+  color: var(--ink-muted);
+}
+.productMedia {
+  margin: 0;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--surface-sunk);
+  aspect-ratio: 4 / 5;
+  display: grid;
+  place-items: center;
+}
+.productMedia img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.productMedia .placeholderImg {
+  width: 60%;
+  height: auto;
+  object-fit: contain;
+}
+.placeholder {
+  display: grid;
+  justify-items: center;
+  gap: var(--s-4);
+  text-align: center;
+  color: var(--ink-muted);
+  font-size: var(--fs-small);
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+}
+
+/* Legal pages */
+.legal {
+  padding-block: var(--s-8) var(--section-pad);
+}
+.legalInner {
+  display: grid;
+  gap: var(--s-6);
+  max-width: 46rem;
+}
+.legalInner h2 {
+  font-size: var(--fs-h3);
+}
+.legalInner section {
+  display: grid;
+  gap: var(--s-3);
+}
+.legalInner p {
+  color: var(--ink-muted);
+}
+.updated {
+  font-size: var(--fs-small);
+  color: var(--ink-muted);
+}
+@media (min-width: 1100px) {
+  .four {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

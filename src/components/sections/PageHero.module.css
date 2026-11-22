@@ -1,0 +1,52 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  min-height: min(68svh, 40rem);
+  display: grid;
+  align-items: end;
+  padding-block: calc(env(safe-area-inset-top, 0px) + 8rem) var(--s-8);
+  background: var(--c-teal);
+  color: var(--c-cream);
+  overflow: hidden;
+}
+.img {
+  object-fit: cover;
+  z-index: -2;
+  animation: settle 1400ms var(--ease) both;
+}
+@keyframes settle {
+  from {
+    transform: scale(1.05);
+  }
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgb(40 67 58 / 0.25) 0%, rgb(40 67 58 / 0.2) 35%, rgb(30 48 20 / 0.82) 100%);
+}
+.inner {
+  display: grid;
+  gap: var(--s-4);
+  justify-items: start;
+  animation: rise 700ms var(--ease) 120ms both;
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+.inner h1 {
+  max-width: 18ch;
+  color: var(--c-cream);
+}
+.label {
+  color: #e7d7a6;
+}
+.lead {
+  max-width: 52ch;
+  font-size: var(--fs-lead);
+  color: rgb(245 236 205 / 0.92);
+}

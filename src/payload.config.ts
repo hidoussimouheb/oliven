@@ -6,6 +6,7 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import sharp from 'sharp'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
+import { Inquiries } from './collections/Inquiries'
 
 const dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -19,7 +20,7 @@ export default buildConfig({
     meta: { titleSuffix: ' · óliven admin' },
     importMap: { baseDir: path.resolve(dirname) },
   },
-  collections: [Users, Media],
+  collections: [Inquiries, Users, Media],
   localization: {
     locales: [
       { code: 'en', label: 'English' },

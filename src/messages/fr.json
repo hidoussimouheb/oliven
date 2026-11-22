@@ -51,7 +51,36 @@
     "chooseOne": "Choisissez",
     "send": "Envoyer la demande",
     "errorEmail": "Saisissez une adresse e-mail, par exemple nom@societe.com.",
-    "errorRequired": "Ce champ est obligatoire."
+    "errorRequired": "Ce champ est obligatoire.",
+    "countryPlaceholder": "Choisissez votre pays",
+    "formats": "Formats qui vous intéressent",
+    "quantity": "Quantité estimée",
+    "unit": "Unité",
+    "units": {
+      "units": "Bidons, bouteilles ou bocaux",
+      "cartons": "Cartons",
+      "litres": "Litres"
+    },
+    "destination": "Ville ou port de destination",
+    "businessTypes": {
+      "importer": "Importateur",
+      "distributor": "Distributeur ou grossiste",
+      "retail": "Enseigne de distribution",
+      "specialty": "Épicerie fine",
+      "foodservice": "Restaurant ou traiteur",
+      "other": "Autre"
+    },
+    "consent": "J'accepte qu'óliven conserve ces informations pour répondre à ma demande.",
+    "privacyLink": "Lire la politique de confidentialité",
+    "sending": "Envoi…",
+    "successTitle": "Demande reçue",
+    "successText": "Merci. Votre demande est enregistrée et notre service export répondra à {email}.",
+    "errorSummary": "Certains champs sont à corriger. Voir les messages ci-dessous.",
+    "errorGeneric": "Nous n'avons pas pu enregistrer votre demande. Réessayez dans un instant, ou écrivez-nous à {email}.",
+    "errorRate": "Trop de demandes depuis cette connexion. Réessayez plus tard, ou écrivez-nous à {email}.",
+    "errorNumber": "Saisissez un nombre supérieur à zéro.",
+    "errorConsent": "Cochez cette case pour que nous puissions répondre à votre demande.",
+    "errorFormats": "Choisissez au moins un format."
   },
   "footer": {
     "about": "óliven est une marque d'huile d'olive de Tunisie, fournie en bidons et en verre aux acheteurs étrangers par QARTENO TRADING.",
@@ -65,5 +94,15 @@
   "styleGuide": {
     "title": "Système de design",
     "intro": "Les composants, couleurs et typographies du site óliven. Cette page est destinée à l'équipe et n'est pas indexée."
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "Demander un devis",
+    "lead": "Présentez-nous votre entreprise et vos besoins. Notre service export vous répond par e-mail.",
+    "detailsTitle": "Coordonnées",
+    "email": "E-mail",
+    "phone": "Téléphone",
+    "address": "Adresse",
+    "metaDescription": "Demandez un devis pour l'huile d'olive óliven de Tunisie. Indiquez votre marché, vos formats et vos quantités."
   }
 }

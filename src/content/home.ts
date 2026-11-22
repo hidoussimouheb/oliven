@@ -45,7 +45,7 @@ export const homeContent: Record<Locale, HomeContent> = {
       title: 'A Tunisian olive oil brand made for buyers abroad',
       paragraphs: [
         'óliven is the olive oil brand of QARTENO TRADING, based in Tunis. We work with olive mills in Tunisia, pack their oil under our own label, and supply it to companies outside the country.',
-        'Every label is printed in English, French and Arabic, so the same tin or bottle can go on a shelf in Europe, the Gulf or North Africa.',
+        'We supply the oil filled, labelled and packed in cartons, ready to ship.',
       ],
     },
     process: {
@@ -78,14 +78,14 @@ export const homeContent: Record<Locale, HomeContent> = {
         { label: "Harvest", title: "Picked in season", text: "Olives are picked across Tunisia from late autumn into winter, the main season for the crop.", imageAlt: "Olives being picked by hand from a tree" },
         { label: "At the mill", title: "Cleaned before pressing", text: "At the mill the olives are washed and the leaves are taken out before pressing.", imageAlt: "Freshly harvested olives being sorted by hand" },
         { label: "Pressing", title: "Mechanical extraction only", text: "Our partner mills in Tunisia extract the oil from the olives by mechanical means only.", imageAlt: "Olive oil running from a steel spout" },
-        { label: "Packing", title: "Filled under the óliven label", text: "The oil is filled into óliven tins and bottles in Tunisia, labelled in three languages and packed for export.", imageAlt: "óliven 2 litre tin on a wooden table beside olive branches" },
+        { label: "Packing", title: "Filled under the óliven label", text: "The oil is filled into óliven tins and bottles in Tunisia, labelled and packed for export.", imageAlt: "óliven 2 litre tin on a wooden table beside olive branches" },
       ],
     },
     origin: {
       label: 'Origin',
       title: 'Grown and pressed in Tunisia',
       text: 'Tunisia is one of the largest olive oil exporters in the world, and olive growing there goes back to Carthage. óliven brings that oil to you in a finished, labelled pack.',
-      points: ['Product of Tunisia', 'Packed in Tunisia', 'Labels in three languages'],
+      points: ['Product of Tunisia', 'Packed in Tunisia', 'Tin and glass formats'],
       galleryAlts: ["Aerial view of olive plantations in Tunisia", "Olive branch with ripening olives in Tunisia", "Dirt path between olive trees in Tunisia"],
     },
     quality: {
@@ -101,7 +101,7 @@ export const homeContent: Record<Locale, HomeContent> = {
       buyers: [
         { title: 'Importers', text: 'Larger orders of one or several formats for your own distribution.' },
         { title: 'Distributors and wholesalers', text: 'Tins for food service and bottles for the shops you deliver to.' },
-        { title: 'Retail chains', text: 'Shelf-ready 500 ml and 700 ml formats with trilingual labels.' },
+        { title: 'Retail chains', text: 'The 500 ml and 700 ml formats, sized for retail shelves.' },
         { title: 'Specialty food shops', text: 'Smaller mixed orders of the glass and tin formats.' },
       ],
       imageAlt: 'Kraft shipping cartons printed with the óliven logo',
@@ -131,7 +131,7 @@ export const homeContent: Record<Locale, HomeContent> = {
       title: "Une marque d'huile d'olive tunisienne pensée pour l'export",
       paragraphs: [
         "óliven est la marque d'huile d'olive de QARTENO TRADING, installée à Tunis. Nous travaillons avec des moulins en Tunisie, conditionnons leur huile sous notre propre marque et la fournissons à des entreprises à l'étranger.",
-        "Chaque étiquette est imprimée en anglais, en français et en arabe : le même bidon ou la même bouteille peut aller en rayon en Europe, dans le Golfe ou en Afrique du Nord.",
+        "Nous livrons l'huile conditionnée, étiquetée et mise en cartons, prête à expédier.",
       ],
     },
     process: {
@@ -164,14 +164,14 @@ export const homeContent: Record<Locale, HomeContent> = {
         { label: "Récolte", title: "Cueillies en saison", text: "Les olives sont cueillies dans toute la Tunisie de la fin de l'automne jusqu'à l'hiver, la grande saison de la récolte.", imageAlt: "Cueillette d'olives à la main sur un arbre" },
         { label: "Au moulin", title: "Nettoyées avant le pressage", text: "Au moulin, les olives sont lavées et débarrassées de leurs feuilles avant le pressage.", imageAlt: "Tri à la main d'olives fraîchement récoltées" },
         { label: "Pressage", title: "Extraction uniquement mécanique", text: "Nos moulins partenaires en Tunisie extraient l'huile des olives uniquement par des procédés mécaniques.", imageAlt: "Huile d'olive coulant d'un bec en acier" },
-        { label: "Conditionnement", title: "Mise en bidon sous la marque óliven", text: "L'huile est mise en bidons et en bouteilles óliven en Tunisie, étiquetée en trois langues et emballée pour l'export.", imageAlt: "Bidon óliven de 2 litres sur une table en bois, à côté de branches d'olivier" },
+        { label: "Conditionnement", title: "Mise en bidon sous la marque óliven", text: "L'huile est mise en bidons et en bouteilles óliven en Tunisie, étiquetée et emballée pour l'export.", imageAlt: "Bidon óliven de 2 litres sur une table en bois, à côté de branches d'olivier" },
       ],
     },
     origin: {
       label: 'Origine',
       title: 'Cultivée et pressée en Tunisie',
       text: "La Tunisie est l'un des plus grands exportateurs d'huile d'olive au monde, et l'oléiculture y remonte à Carthage. óliven vous apporte cette huile dans un conditionnement fini et étiqueté.",
-      points: ['Produit de Tunisie', 'Conditionné en Tunisie', 'Étiquettes en trois langues'],
+      points: ['Produit de Tunisie', 'Conditionné en Tunisie', 'Formats en métal et en verre'],
       galleryAlts: ["Vue aérienne d'oliveraies en Tunisie", "Branche d'olivier aux olives mûrissantes en Tunisie", "Chemin de terre entre des oliviers en Tunisie"],
     },
     quality: {
@@ -187,7 +187,7 @@ export const homeContent: Record<Locale, HomeContent> = {
       buyers: [
         { title: 'Importateurs', text: "Des commandes importantes d'un ou plusieurs formats pour votre propre distribution." },
         { title: 'Distributeurs et grossistes', text: 'Des bidons pour la restauration et des bouteilles pour les magasins que vous livrez.' },
-        { title: 'Enseignes de distribution', text: 'Formats de 500 ml et 700 ml prêts pour le rayon, avec étiquettes trilingues.' },
+        { title: 'Enseignes de distribution', text: 'Les formats de 500 ml et 700 ml, pensés pour le rayon.' },
         { title: 'Épiceries fines', text: 'Petites commandes mixtes des formats en verre et en métal.' },
       ],
       imageAlt: 'Cartons d’expédition en kraft imprimés du logo óliven',
@@ -217,7 +217,7 @@ export const homeContent: Record<Locale, HomeContent> = {
       title: 'علامة زيت زيتون تونسية موجّهة للمشترين في الخارج',
       paragraphs: [
         'أوليفن هي علامة زيت الزيتون التابعة لشركة QARTENO TRADING ومقرّها تونس العاصمة. نتعامل مع معاصر زيتون في تونس، ونعبّئ زيتها تحت علامتنا الخاصة، ونورّده إلى شركات خارج البلاد.',
-        'كل ملصق مطبوع بالإنجليزية والفرنسية والعربية، فيمكن للعلبة أو القارورة نفسها أن تُعرض على الرفوف في أوروبا أو الخليج أو شمال إفريقيا.',
+        'نورّد الزيت معبّأً وعليه الملصق ومغلّفًا في كراتين، جاهزًا للشحن.',
       ],
     },
     process: {
@@ -250,14 +250,14 @@ export const homeContent: Record<Locale, HomeContent> = {
         { label: "الجني", title: "يُجنى في موسمه", text: "يُجنى الزيتون في مختلف أنحاء تونس من أواخر الخريف حتى الشتاء، وهو الموسم الرئيسي للمحصول.", imageAlt: "جني الزيتون باليد من الشجرة" },
         { label: "في المعصرة", title: "يُنظَّف قبل العصر", text: "في المعصرة يُغسل الزيتون وتُزال أوراقه قبل العصر.", imageAlt: "فرز زيتون مقطوف حديثًا باليد" },
         { label: "العصر", title: "استخراج ميكانيكي فقط", text: "تستخرج معاصرنا الشريكة في تونس الزيت من الزيتون بوسائل ميكانيكية فقط.", imageAlt: "زيت زيتون يسيل من صنبور معدني" },
-        { label: "التعبئة", title: "يُعبّأ تحت علامة أوليفن", text: "يُعبّأ الزيت في علب وقوارير أوليفن في تونس، وتُلصق عليه بطاقات بثلاث لغات، ثم يُغلَّف للتصدير.", imageAlt: "علبة أوليفن سعة 2 لتر على طاولة خشبية بجانب أغصان الزيتون" },
+        { label: "التعبئة", title: "يُعبّأ تحت علامة أوليفن", text: "يُعبّأ الزيت في علب وقوارير أوليفن في تونس، ويوضع عليه الملصق، ثم يُغلَّف للتصدير.", imageAlt: "علبة أوليفن سعة 2 لتر على طاولة خشبية بجانب أغصان الزيتون" },
       ],
     },
     origin: {
       label: 'المنشأ',
       title: 'مزروع ومعصور في تونس',
       text: 'تونس من أكبر مصدّري زيت الزيتون في العالم، وتعود زراعة الزيتون فيها إلى عهد قرطاج. تقدّم لكم أوليفن هذا الزيت في عبوة جاهزة وموسومة.',
-      points: ['منتج تونسي', 'معبّأ في تونس', 'ملصقات بثلاث لغات'],
+      points: ['منتج تونسي', 'معبّأ في تونس', 'عبوات معدنية وزجاجية'],
       galleryAlts: ["منظر جوي لبساتين الزيتون في تونس", "غصن زيتون بثمار تنضج في تونس", "طريق ترابي بين أشجار الزيتون في تونس"],
     },
     quality: {
@@ -273,7 +273,7 @@ export const homeContent: Record<Locale, HomeContent> = {
       buyers: [
         { title: 'المستوردون', text: 'طلبات كبيرة من حجم واحد أو عدة أحجام لشبكة توزيعكم.' },
         { title: 'الموزعون وتجار الجملة', text: 'علب معدنية لقطاع المطاعم وقوارير للمتاجر التي تزوّدونها.' },
-        { title: 'سلاسل التجزئة', text: 'أحجام 500 مل و700 مل جاهزة للرفوف بملصقات ثلاثية اللغة.' },
+        { title: 'سلاسل التجزئة', text: 'حجما 500 مل و700 مل، المناسبان لرفوف المتاجر.' },
         { title: 'متاجر الأغذية الفاخرة', text: 'طلبات مختلطة أصغر من العبوات الزجاجية والمعدنية.' },
       ],
       imageAlt: 'صناديق شحن من الكرتون مطبوع عليها شعار أوليفن',
