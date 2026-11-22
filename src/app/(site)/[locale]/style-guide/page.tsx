@@ -11,7 +11,7 @@ import { ProductCard } from '@/components/ui/ProductCard'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { SpecList } from '@/components/ui/SpecList'
 import type { Locale } from '@/i18n/routing'
-import tinScene from '../../../../../seed/media/tin-5l-mockup-scene.png'
+import tinScene from '../../../../../seed/media/tin-2l-mockup-scene.png'
 import s from './styleGuide.module.css'
 
 export const metadata: Metadata = { robots: { index: false, follow: false } }
@@ -38,7 +38,7 @@ const sample = {
     material: 'Metal tin with handle',
     labelLangs: 'English, French, Arabic',
     tunisia: 'Tunisia',
-    altTin: 'óliven 5 litre tin on a wooden table beside olive branches',
+    altTin: 'óliven 2 litre tin on a wooden table beside olive branches',
     business: [
       ['importer', 'Importer'],
       ['distributor', 'Distributor or wholesaler'],
@@ -68,7 +68,7 @@ const sample = {
     material: 'Bidon métallique avec poignée',
     labelLangs: 'Anglais, français, arabe',
     tunisia: 'Tunisie',
-    altTin: "Bidon óliven de 5 litres sur une table en bois, à côté de branches d'olivier",
+    altTin: "Bidon óliven de 2 litres sur une table en bois, à côté de branches d'olivier",
     business: [
       ['importer', 'Importateur'],
       ['distributor', 'Distributeur ou grossiste'],
@@ -98,7 +98,7 @@ const sample = {
     material: 'علبة معدنية بمقبض',
     labelLangs: 'الإنجليزية والفرنسية والعربية',
     tunisia: 'تونس',
-    altTin: 'علبة أوليفن سعة 5 لترات على طاولة خشبية بجانب أغصان الزيتون',
+    altTin: 'علبة أوليفن سعة 2 لتر على طاولة خشبية بجانب أغصان الزيتون',
     business: [
       ['importer', 'مستورد'],
       ['distributor', 'موزع أو تاجر جملة'],
@@ -259,7 +259,7 @@ export default async function StyleGuide({ params }: { params: Promise<{ locale:
                 name={vol}
                 meta={mat}
                 placeholderText={t('product.photoToCome')}
-                image={i === 0 ? { src: tinScene.src, alt: c.altTin, width: tinScene.width, height: tinScene.height } : undefined}
+                image={i === 1 ? { src: tinScene.src, alt: c.altTin, width: tinScene.width, height: tinScene.height } : undefined}
               />
             ))}
           </div>

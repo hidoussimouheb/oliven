@@ -1,0 +1,264 @@
+/* Homepage sections. Logical properties throughout so the Arabic page mirrors cleanly. */
+
+.section {
+  padding-block: var(--section-pad);
+}
+
+/* Two-column text + photo */
+.split {
+  display: grid;
+  gap: var(--s-7);
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .split {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--s-8);
+  }
+  .splitReverse > .photo {
+    order: -1;
+  }
+}
+.splitText {
+  display: grid;
+  gap: var(--s-5);
+  justify-items: start;
+}
+.prose {
+  display: grid;
+  gap: var(--s-4);
+  max-width: var(--measure);
+  color: var(--ink-muted);
+}
+.photo {
+  margin: 0;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--surface-sunk);
+  box-shadow: var(--shadow-soft);
+}
+.photo img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+/* How we work: teal band with the branch illustration under cream glass cards */
+.processBand {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--c-teal);
+  color: var(--c-cream);
+}
+.processBranch {
+  position: absolute;
+  z-index: -1;
+  inset-inline-end: -6%;
+  bottom: -4%;
+  width: min(80rem, 130%);
+  height: auto;
+  opacity: 0.55;
+  pointer-events: none;
+}
+:global([dir='rtl']) .processBranch {
+  transform: scaleX(-1);
+}
+.onDark :global(.label) {
+  color: #e7d7a6;
+}
+.onDark :global(.lead) {
+  color: rgb(245 236 205 / 0.88);
+}
+.steps {
+  list-style: none;
+  margin: var(--s-7) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--s-4);
+}
+@media (min-width: 768px) {
+  .steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--s-5);
+  }
+}
+.steps > li {
+  display: grid;
+}
+.step {
+  /* Denser cream than the default glass so body text keeps its contrast over the teal band */
+  background: rgb(245 236 205 / 0.9) !important;
+  display: grid;
+  align-content: start;
+  gap: var(--s-3);
+}
+.step p {
+  color: var(--ink);
+}
+.stepNumber {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  line-height: 1;
+  color: var(--c-gold);
+}
+
+/* Formats grid */
+.products {
+  margin-top: var(--s-7);
+  display: grid;
+  gap: var(--s-5);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (min-width: 768px) {
+  .products {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1100px) {
+  .products {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+.sectionAction {
+  margin-top: var(--s-7);
+  display: flex;
+  justify-content: center;
+}
+
+/* Origin: one large word as the type moment */
+.originBand {
+  background: var(--surface-sunk);
+  border-block: 1px solid var(--c-line);
+}
+.origin {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: var(--s-4);
+}
+.originWord {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 2rem + 10vw, 11rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--c-olive);
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+:global(html[lang='ar']) .originWord {
+  font-family: var(--font-display-ar);
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.3;
+}
+.originTitle {
+  font-size: var(--fs-h3);
+  max-width: 32ch;
+}
+.origin :global(.lead) {
+  margin-inline: auto;
+}
+.points {
+  list-style: none;
+  margin: var(--s-4) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--s-3);
+}
+.points li {
+  padding: var(--s-2) var(--s-4);
+  border: 1px solid var(--c-line-strong);
+  border-radius: var(--r-pill);
+  font-size: var(--fs-small);
+}
+
+/* Buyer types */
+.buyers {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--s-4);
+  width: 100%;
+}
+@media (min-width: 560px) {
+  .buyers {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.buyers li {
+  display: grid;
+  gap: var(--s-1);
+  padding-block-start: var(--s-3);
+  border-block-start: 1px solid var(--c-line-strong);
+}
+.buyers h3 {
+  font-size: 1.1875rem;
+}
+.buyers p {
+  font-size: var(--fs-small);
+  color: var(--ink-muted);
+}
+
+/* Quality note */
+.qualityBand {
+  padding-block: 0 var(--section-pad);
+}
+.quality {
+  display: grid;
+  gap: var(--s-5);
+  align-items: center;
+  justify-items: start;
+  padding-block: var(--s-7);
+  border-block: 1px solid var(--c-line-strong);
+}
+.quality h2 {
+  font-size: var(--fs-h3);
+  margin-top: var(--s-2);
+}
+.quality p {
+  color: var(--ink-muted);
+  max-width: var(--measure);
+}
+@media (min-width: 1000px) {
+  .quality {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr) auto;
+    gap: var(--s-7);
+  }
+}
+
+/* Closing call to action */
+.closing {
+  background: var(--c-plum);
+  color: var(--c-cream);
+  padding-block: var(--section-pad);
+}
+.closingInner {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: var(--s-5);
+}
+.closingInner h2 {
+  max-width: 22ch;
+}
+.closingInner p {
+  max-width: 52ch;
+  color: rgb(245 236 205 / 0.88);
+}
+.closingActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-4) var(--s-6);
+  margin-top: var(--s-3);
+}
+.closingPhone {
+  font-size: var(--fs-lead);
+  letter-spacing: 0.02em;
+}
