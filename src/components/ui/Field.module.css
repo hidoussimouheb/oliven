@@ -1,0 +1,67 @@
+.field {
+  display: grid;
+  gap: var(--s-2);
+  min-width: 0;
+}
+.label {
+  font-size: var(--fs-small);
+  font-weight: 500;
+  color: var(--c-olive);
+}
+.optional {
+  font-weight: 400;
+  color: var(--ink-muted);
+}
+.control {
+  width: 100%;
+  min-height: 48px;
+  padding: var(--s-3) var(--s-4);
+  border-radius: var(--r-sm);
+  border: 1px solid var(--c-line-strong);
+  background: var(--c-cream-light);
+  color: var(--c-olive);
+  font-size: 1rem;
+  transition: border-color var(--t-fast) var(--ease);
+}
+.control::placeholder {
+  color: #7d8566;
+}
+.control:hover {
+  border-color: var(--c-olive);
+}
+.control:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 1px;
+  border-color: var(--c-olive);
+}
+textarea.control {
+  min-height: 9rem;
+  resize: vertical;
+}
+select.control {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--c-olive) 50%),
+    linear-gradient(135deg, var(--c-olive) 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) 50%,
+    calc(100% - 15px) 50%;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+  padding-inline-end: 2.5rem;
+}
+:global([dir='rtl']) select.control {
+  background-position:
+    20px 50%,
+    15px 50%;
+}
+.invalid .control {
+  border-color: var(--c-error);
+}
+.hint {
+  font-size: 0.875rem;
+  color: var(--ink-muted);
+}
+.error {
+  font-size: 0.875rem;
+  color: var(--c-error);
+}

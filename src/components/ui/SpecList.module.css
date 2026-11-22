@@ -1,0 +1,15 @@
+.list {
+  display: grid;
+  grid-template-columns: minmax(6rem, auto) 1fr;
+  gap: var(--s-2) var(--s-5);
+  margin: 0;
+  font-size: var(--fs-small);
+}
+.list dt {
+  color: inherit;
+  opacity: 0.75;
+}
+.list dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}

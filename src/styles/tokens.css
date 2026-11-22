@@ -1,0 +1,95 @@
+/*
+ * óliven design tokens.
+ * Colours are the five swatches from the brand board (Oliven-Brand-Board-editable VF.pdf).
+ * The site has one brand theme (the cream packaging ground); there is no dark mode by design.
+ */
+:root {
+  /* Brand palette */
+  --c-olive: #2b401a;
+  --c-teal: #28433a;
+  --c-gold: #a8884a;
+  --c-cream: #f5eccd;
+  --c-plum: #4a2f35;
+
+  /* Derived neutrals (cream and olive mixed, never pure grey) */
+  --c-cream-deep: #efe4be;
+  --c-cream-light: #f9f2dc;
+  --c-olive-hover: #364f22;
+  --c-muted: #55603f; /* 6.1:1 on cream */
+  --c-line: rgb(43 64 26 / 0.18);
+  --c-line-strong: rgb(43 64 26 / 0.35);
+  --c-error: #8a2b1d; /* 7.4:1 on cream */
+  --c-success: #2b5a2e;
+
+  /* Roles */
+  --bg: var(--c-cream);
+  --surface: var(--c-cream-light);
+  --surface-sunk: var(--c-cream-deep);
+  --ink: var(--c-olive);
+  --ink-muted: var(--c-muted);
+  --ink-on-dark: var(--c-cream);
+  --accent: var(--c-gold);
+  --focus: var(--c-gold);
+
+  /* Glass: two tints only. Only ever placed over a photograph or the branch illustration. */
+  --glass-cream-bg: rgb(245 236 205 / 0.62);
+  --glass-cream-edge: rgb(245 236 205 / 0.6);
+  --glass-teal-bg: rgb(40 67 58 / 0.56);
+  --glass-teal-edge: rgb(245 236 205 / 0.28);
+  --glass-blur: 20px;
+  --glass-saturate: 1.15;
+
+  /* Type families */
+  --font-display: var(--font-caslon), Georgia, 'Times New Roman', serif;
+  --font-body: var(--font-jost), 'Helvetica Neue', Arial, sans-serif;
+  --font-display-ar: var(--font-naskh), 'Geeza Pro', Tahoma, serif;
+  --font-body-ar: var(--font-noto-arabic), Tahoma, Arial, sans-serif;
+
+  /* Type scale (fluid between 375 and 1440 px) */
+  --fs-display: clamp(2.5rem, 1.8rem + 3vw, 4.5rem);
+  --fs-h1: clamp(2.125rem, 1.6rem + 2.2vw, 3.5rem);
+  --fs-h2: clamp(1.75rem, 1.4rem + 1.5vw, 2.625rem);
+  --fs-h3: clamp(1.25rem, 1.15rem + 0.45vw, 1.5rem);
+  --fs-lead: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
+  --fs-body: 1.0625rem;
+  --fs-small: 0.9375rem;
+  --fs-label: 0.75rem;
+  --tracking-label: 0.22em;
+  --lh-tight: 1.15;
+  --lh-body: 1.6;
+  --measure: 64ch;
+
+  /* Spacing (4 px base) */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-7: 3rem;
+  --s-8: 4rem;
+  --s-9: 6rem;
+  --section-pad: clamp(4rem, 3rem + 4vw, 7rem);
+
+  /* Layout */
+  --wrap-max: 1240px;
+  --gutter: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-end: max(16px, env(safe-area-inset-right, 0px));
+  --gutter-wide: clamp(16px, 4vw, 48px);
+
+  /* Shape */
+  --r-sm: 6px;
+  --r-md: 12px;
+  --r-lg: 20px;
+  --r-pill: 999px;
+  --shadow-soft: 0 24px 48px -28px rgb(43 64 26 / 0.45);
+
+  /* Motion */
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --t-fast: 150ms;
+  --t-med: 300ms;
+
+  /* Layers */
+  --z-header: 50;
+  --z-menu: 60;
+}

@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "siteName": "óliven",
+    "defaultTitle": "óliven · Huile d'olive de Tunisie pour importateurs et distributeurs",
+    "defaultDescription": "óliven fournit de l'huile d'olive tunisienne en cinq formats, du verre de 500 ml au bidon de 5 L, aux importateurs, distributeurs et acheteurs de la grande distribution. Demandez un devis."
+  },
+  "nav": {
+    "home": "Accueil",
+    "story": "Notre histoire",
+    "oliveOil": "Notre huile d'olive",
+    "quality": "Qualité et origine",
+    "export": "Export et partenariats",
+    "contact": "Contact",
+    "requestQuote": "Demander un devis",
+    "menu": "Menu",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "skip": "Aller au contenu",
+    "primary": "Navigation principale"
+  },
+  "language": {
+    "label": "Langue",
+    "en": "English",
+    "fr": "Français",
+    "ar": "العربية"
+  },
+  "cta": {
+    "requestQuotation": "Demander un devis",
+    "seeFormats": "Voir les cinq formats",
+    "quoteFormat": "Demander un devis pour ce format",
+    "downloadSheet": "Télécharger la fiche technique",
+    "contactExport": "Contacter le service export"
+  },
+  "product": {
+    "volume": "Contenance",
+    "material": "Matériau",
+    "labelLanguages": "Étiquette",
+    "origin": "Origine",
+    "photoToCome": "Photo à venir"
+  },
+  "form": {
+    "fullName": "Nom complet",
+    "company": "Société",
+    "email": "E-mail professionnel",
+    "country": "Pays",
+    "phone": "Téléphone",
+    "businessType": "Type d'activité",
+    "message": "Message",
+    "optional": "facultatif",
+    "required": "Obligatoire",
+    "chooseOne": "Choisissez",
+    "send": "Envoyer la demande",
+    "errorEmail": "Saisissez une adresse e-mail, par exemple nom@societe.com.",
+    "errorRequired": "Ce champ est obligatoire."
+  },
+  "footer": {
+    "about": "óliven est une marque d'huile d'olive de Tunisie, fournie en bidons et en verre aux acheteurs étrangers par QARTENO TRADING.",
+    "explore": "Découvrir",
+    "contact": "Contact",
+    "legal": "Informations légales",
+    "privacy": "Politique de confidentialité",
+    "terms": "Mentions légales",
+    "rights": "Tous droits réservés."
+  },
+  "styleGuide": {
+    "title": "Système de design",
+    "intro": "Les composants, couleurs et typographies du site óliven. Cette page est destinée à l'équipe et n'est pas indexée."
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "siteName": "óliven",
+    "defaultTitle": "óliven · Olive oil from Tunisia for importers and distributors",
+    "defaultDescription": "óliven supplies Tunisian olive oil in five formats, from 500 ml glass to 5 L tins, to importers, distributors and retail buyers. Request a quotation."
+  },
+  "nav": {
+    "home": "Home",
+    "story": "Our Story",
+    "oliveOil": "Our Olive Oil",
+    "quality": "Quality & Origin",
+    "export": "Export & Partnerships",
+    "contact": "Contact",
+    "requestQuote": "Request a quote",
+    "menu": "Menu",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "skip": "Skip to content",
+    "primary": "Main navigation"
+  },
+  "language": {
+    "label": "Language",
+    "en": "English",
+    "fr": "Français",
+    "ar": "العربية"
+  },
+  "cta": {
+    "requestQuotation": "Request a quotation",
+    "seeFormats": "See the five formats",
+    "quoteFormat": "Quote this format",
+    "downloadSheet": "Download technical sheet",
+    "contactExport": "Contact the export team"
+  },
+  "product": {
+    "volume": "Volume",
+    "material": "Material",
+    "labelLanguages": "Label",
+    "origin": "Origin",
+    "photoToCome": "Photograph to come"
+  },
+  "form": {
+    "fullName": "Full name",
+    "company": "Company name",
+    "email": "Business email",
+    "country": "Country",
+    "phone": "Phone number",
+    "businessType": "Business type",
+    "message": "Message",
+    "optional": "optional",
+    "required": "Required",
+    "chooseOne": "Choose one",
+    "send": "Send request",
+    "errorEmail": "Enter an email address, for example name@company.com.",
+    "errorRequired": "This field is required."
+  },
+  "footer": {
+    "about": "óliven is an olive oil brand from Tunisia, supplied in tins and glass to buyers abroad by QARTENO TRADING.",
+    "explore": "Explore",
+    "contact": "Contact",
+    "legal": "Legal",
+    "privacy": "Privacy policy",
+    "terms": "Legal notice",
+    "rights": "All rights reserved."
+  },
+  "styleGuide": {
+    "title": "Design system",
+    "intro": "The components, colours and type the óliven site is built from. This page is for the team and is not indexed."
+  }
+}

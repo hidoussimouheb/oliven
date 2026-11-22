@@ -1,0 +1,74 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  min-height: 48px;
+  padding: 0 var(--s-5);
+  border-radius: var(--r-pill);
+  border: 1px solid transparent;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    transform var(--t-fast) var(--ease),
+    background-color var(--t-fast) var(--ease),
+    border-color var(--t-fast) var(--ease);
+}
+:global(html[lang='ar']) .btn {
+  font-family: var(--font-body-ar);
+  letter-spacing: 0;
+}
+.btn:hover {
+  transform: translateY(-1px);
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.sm {
+  min-height: 44px;
+  padding: 0 var(--s-4);
+  font-size: 0.875rem;
+}
+.solid {
+  background: var(--c-olive);
+  color: var(--c-cream);
+}
+.solid:hover {
+  background: var(--c-olive-hover);
+}
+.outline {
+  background: transparent;
+  color: var(--c-olive);
+  border-color: var(--c-line-strong);
+}
+.outline:hover {
+  border-color: var(--c-olive);
+  background: rgb(43 64 26 / 0.05);
+}
+/* For use on photographs and dark grounds only */
+.glass {
+  background: rgb(245 236 205 / 0.14);
+  color: var(--c-cream);
+  border-color: var(--glass-cream-edge);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+.glass:hover {
+  background: rgb(245 236 205 / 0.24);
+}
+.onDark {
+  background: var(--c-cream);
+  color: var(--c-olive);
+}
+.onDark:hover {
+  background: #fff7e0;
+}
+.block {
+  width: 100%;
+}

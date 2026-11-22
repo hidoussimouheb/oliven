@@ -1,0 +1,38 @@
+.panel {
+  position: relative;
+  border-radius: var(--r-lg);
+  padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  border: 1px solid;
+}
+.cream {
+  background: var(--glass-cream-bg);
+  border-color: var(--glass-cream-edge);
+  color: var(--c-olive);
+}
+.teal {
+  background: var(--glass-teal-bg);
+  border-color: var(--glass-teal-edge);
+  color: var(--c-cream);
+}
+.teal :global(.label) {
+  color: #e7d7a6;
+}
+/* Solid fallback where blur is unavailable or the visitor asks for less transparency */
+@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  .cream {
+    background: var(--c-cream);
+  }
+  .teal {
+    background: var(--c-teal);
+  }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .cream {
+    background: var(--c-cream);
+  }
+  .teal {
+    background: var(--c-teal);
+  }
+}
