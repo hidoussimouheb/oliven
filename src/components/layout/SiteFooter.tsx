@@ -1,7 +1,7 @@
 import { getLocale, getTranslations } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { Wordmark } from '@/components/brand/Wordmark'
-import { siteDefaults } from '@/config/site'
+import { getSettings } from '@/cms/get'
 import type { Locale } from '@/i18n/routing'
 import { LanguageSwitcher } from './LanguageSwitcher'
 import { navItems } from './navItems'
@@ -11,6 +11,7 @@ export async function SiteFooter({ credits }: { credits?: string } = {}) {
   const t = await getTranslations()
   const locale = (await getLocale()) as Locale
   const year = new Date().getFullYear()
+  const settings = await getSettings(locale)
   return (
     <footer className={styles.footer}>
       <div className={`wrap ${styles.grid}`}>
@@ -31,10 +32,10 @@ export async function SiteFooter({ credits }: { credits?: string } = {}) {
         <div>
           <h2 className={styles.heading}>{t('footer.contact')}</h2>
           <address className={styles.address}>
-            <span>{siteDefaults.company}</span>
-            <span>{siteDefaults.city[locale]}</span>
-            <a href={`mailto:${siteDefaults.email}`}>{siteDefaults.email}</a>
-            {siteDefaults.phones.map((p) => (
+            <span>{settings.company}</span>
+            <span>{settings.city}</span>
+            <a href={`mailto:${settings.email}`}>{settings.email}</a>
+            {settings.phones.map((p) => (
               <a key={p} href={`tel:${p.replace(/\s/g, '')}`} dir="ltr">
                 {p}
               </a>
@@ -56,7 +57,7 @@ export async function SiteFooter({ credits }: { credits?: string } = {}) {
       </div>
       <div className={`wrap ${styles.base}`}>
         <span>
-          © {year} {siteDefaults.company}. {t('footer.rights')}
+          © {year} {settings.company}. {t('footer.rights')}
         </span>
         {credits ? <span>{credits}</span> : null}
       </div>

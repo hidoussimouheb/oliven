@@ -7,6 +7,8 @@ import sharp from 'sharp'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Inquiries } from './collections/Inquiries'
+import { contentGlobals } from './globals/contentGlobals'
+import { SiteSettings } from './globals/SiteSettings'
 
 const dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -21,6 +23,7 @@ export default buildConfig({
     importMap: { baseDir: path.resolve(dirname) },
   },
   collections: [Inquiries, Users, Media],
+  globals: [...contentGlobals, SiteSettings],
   localization: {
     locales: [
       { code: 'en', label: 'English' },

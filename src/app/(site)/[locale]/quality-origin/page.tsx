@@ -8,8 +8,9 @@ import { PageHero } from '@/components/sections/PageHero'
 import { ButtonLink } from '@/components/ui/Button'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { photoCredits } from '@/content/credits'
-import { homeContent } from '@/content/home'
 import { qualityPage } from '@/content/pages'
+import { getContent, getPhotos } from '@/cms/get'
+import { blurOf } from '@/lib/pic'
 import type { Locale } from '@/i18n/routing'
 import { pageMetadata } from '@/lib/metadata'
 import s from '@/components/sections/Page.module.css'
@@ -22,7 +23,7 @@ type Props = { params: Promise<{ locale: Locale }> }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
-  const c = qualityPage[locale]
+  const c = await getContent('quality', locale)
   return pageMetadata(locale, '/quality-origin', c.meta.title, c.meta.description, spout)
 }
 
@@ -30,15 +31,16 @@ export default async function QualityPage({ params }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
   const t = await getTranslations()
-  const c = qualityPage[locale]
-  const closing = homeContent[locale].closing
+  const c = await getContent('quality', locale)
+  const closing = (await getContent('home', locale)).closing
+  const photo = await getPhotos('quality')
   const f = c.labelFacts
 
   return (
     <>
       <SiteHeader overlay />
       <main id="main">
-        <PageHero image={spout} imageAlt={c.hero.imageAlt} label={c.hero.label} title={c.hero.title} lead={c.hero.lead} />
+        <PageHero image={photo.get('hero', spout)} imageAlt={c.hero.imageAlt} label={c.hero.label} title={c.hero.title} lead={c.hero.lead} />
 
         <section className={s.section} aria-labelledby="origin-title">
           <div className={`wrap ${s.stack}`}>
@@ -56,10 +58,10 @@ export default async function QualityPage({ params }: Props) {
           </div>
           <div className={`wrap ${s.pair}`} style={{ marginTop: 'var(--s-7)' }}>
             <figure data-reveal="photo">
-              <Image src={aerial} alt={c.galleryAlts[1]} sizes="(max-width: 768px) 100vw, 50vw" placeholder="blur" />
+              <Image src={photo.get('originA', aerial)} alt={c.galleryAlts[1] ?? ''} sizes="(max-width: 768px) 100vw, 50vw" {...blurOf(photo.get('originA', aerial))} />
             </figure>
             <figure data-reveal="photo">
-              <Image src={cluster} alt={c.galleryAlts[0]} sizes="(max-width: 768px) 100vw, 50vw" placeholder="blur" />
+              <Image src={photo.get('originB', cluster)} alt={c.galleryAlts[0] ?? ''} sizes="(max-width: 768px) 100vw, 50vw" {...blurOf(photo.get('originB', cluster))} />
             </figure>
           </div>
         </section>
@@ -110,12 +112,12 @@ export default async function QualityPage({ params }: Props) {
               </ButtonLink>
             </div>
             <figure className={s.photo} data-reveal="photo">
-              <Image src={pourBowl} alt="" sizes="(max-width: 900px) 100vw, 50vw" placeholder="blur" />
+              <Image src={photo.get('documents', pourBowl)} alt="" sizes="(max-width: 900px) 100vw, 50vw" {...blurOf(photo.get('documents', pourBowl))} />
             </figure>
           </div>
         </section>
 
-        <CtaBand title={closing.title} text={closing.text} cta={t('cta.requestQuotation')} image={cluster} />
+        <CtaBand title={closing.title} text={closing.text} cta={t('cta.requestQuotation')} image={photo.get('closing', cluster)} />
       </main>
       <SiteFooter credits={photoCredits(locale, ['Xavier von Erlach', 'Strigoo Studios', 'Mohamed Fsili', 'Asli Dokuzeylul'])} />
     </>

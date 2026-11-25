@@ -3,7 +3,8 @@ import { notFound } from 'next/navigation'
 import { setRequestLocale } from 'next-intl/server'
 import { SiteFooter } from '@/components/layout/SiteFooter'
 import { SiteHeader } from '@/components/layout/SiteHeader'
-import { legalContent, legalSlugs, type LegalSlug } from '@/content/legal'
+import { legalSlugs, type LegalSlug } from '@/content/legal'
+import { getContent } from '@/cms/get'
 import { routing, type Locale } from '@/i18n/routing'
 import { pageMetadata } from '@/lib/metadata'
 import s from '@/components/sections/Page.module.css'
@@ -18,7 +19,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params
   if (!isSlug(slug)) return {}
-  const d = legalContent[locale][slug]
+  const d = (await getContent('legal', locale))[slug]
   return pageMetadata(locale, `/legal/${slug}`, d.title, d.description)
 }
 
@@ -26,7 +27,7 @@ export default async function LegalPage({ params }: Props) {
   const { locale, slug } = await params
   if (!isSlug(slug)) notFound()
   setRequestLocale(locale)
-  const d = legalContent[locale][slug]
+  const d = (await getContent('legal', locale))[slug]
   return (
     <>
       <SiteHeader />

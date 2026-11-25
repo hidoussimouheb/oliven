@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { SiteFooter } from '@/components/layout/SiteFooter'
 import { SiteHeader } from '@/components/layout/SiteHeader'
-import { siteDefaults } from '@/config/site'
-import { productContent, productSlugs } from '@/content/products'
+import { productSlugs } from '@/content/products'
+import { getContent, getSettings } from '@/cms/get'
 import type { Locale } from '@/i18n/routing'
 import { countryOptions } from '@/lib/countries'
 import { pageMetadata } from '@/lib/metadata'
@@ -23,7 +23,8 @@ export default async function ContactPage({ params, searchParams }: Props) {
   const { format } = await searchParams
   setRequestLocale(locale)
   const t = await getTranslations('contact')
-  const products = productContent[locale]
+  const products = await getContent('products', locale)
+  const settings = await getSettings(locale)
   const preselected = format && (productSlugs as readonly string[]).includes(format) ? format : undefined
 
   return (
@@ -39,12 +40,12 @@ export default async function ContactPage({ params, searchParams }: Props) {
               <div>
                 <dt>{t('email')}</dt>
                 <dd dir="ltr">
-                  <a href={`mailto:${siteDefaults.email}`}>{siteDefaults.email}</a>
+                  <a href={`mailto:${settings.email}`}>{settings.email}</a>
                 </dd>
               </div>
               <div>
                 <dt>{t('phone')}</dt>
-                {siteDefaults.phones.map((p) => (
+                {settings.phones.map((p) => (
                   <dd key={p} dir="ltr">
                     <a href={`tel:${p.replace(/\s/g, '')}`}>{p}</a>
                   </dd>
@@ -53,9 +54,9 @@ export default async function ContactPage({ params, searchParams }: Props) {
               <div>
                 <dt>{t('address')}</dt>
                 <dd>
-                  {siteDefaults.company}
+                  {settings.company}
                   <br />
-                  {siteDefaults.city[locale]}
+                  {settings.city}
                 </dd>
               </div>
             </dl>
@@ -67,7 +68,7 @@ export default async function ContactPage({ params, searchParams }: Props) {
               countries={countryOptions(locale)}
               formats={productSlugs.map((slug) => ({ value: slug, label: `${products[slug].volume} · ${products[slug].material}` }))}
               preselected={preselected}
-              contactEmail={siteDefaults.email}
+              contactEmail={settings.email}
             />
           </div>
         </div>

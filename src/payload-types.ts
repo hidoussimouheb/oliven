@@ -89,8 +89,26 @@ export interface Config {
     defaultIDType: number;
   };
   fallbackLocale: ('false' | 'none' | 'null') | false | null | ('en' | 'fr' | 'ar') | ('en' | 'fr' | 'ar')[];
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    'home-page': HomePage;
+    'story-page': StoryPage;
+    'range-page': RangePage;
+    'quality-page': QualityPage;
+    'export-page': ExportPage;
+    products: Product;
+    'legal-pages': LegalPage;
+    'site-settings': SiteSetting;
+  };
+  globalsSelect: {
+    'home-page': HomePageSelect<false> | HomePageSelect<true>;
+    'story-page': StoryPageSelect<false> | StoryPageSelect<true>;
+    'range-page': RangePageSelect<false> | RangePageSelect<true>;
+    'quality-page': QualityPageSelect<false> | QualityPageSelect<true>;
+    'export-page': ExportPageSelect<false> | ExportPageSelect<true>;
+    products: ProductsSelect<false> | ProductsSelect<true>;
+    'legal-pages': LegalPagesSelect<false> | LegalPagesSelect<true>;
+    'site-settings': SiteSettingsSelect<false> | SiteSettingsSelect<true>;
+  };
   locale: 'en' | 'fr' | 'ar';
   widgets: {
     collections: CollectionsWidget;
@@ -460,6 +478,1082 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "home-page".
+ */
+export interface HomePage {
+  id: number;
+  content?: {
+    meta?: {
+      title?: string | null;
+      description?: string | null;
+    };
+    hero?: {
+      label?: string | null;
+      title?: string | null;
+      text?: string | null;
+      facts?:
+        | {
+            value?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+      imageAlt?: string | null;
+    };
+    intro?: {
+      label?: string | null;
+      title?: string | null;
+      paragraphs?:
+        | {
+            value?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    process?: {
+      label?: string | null;
+      title?: string | null;
+      lead?: string | null;
+      steps?:
+        | {
+            title?: string | null;
+            text?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    formats?: {
+      label?: string | null;
+      title?: string | null;
+      lead?: string | null;
+      items?:
+        | {
+            slug?: string | null;
+            volume?: string | null;
+            material?: string | null;
+            imageAlt?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    journey?: {
+      label?: string | null;
+      title?: string | null;
+      lead?: string | null;
+      steps?:
+        | {
+            label?: string | null;
+            title?: string | null;
+            text?: string | null;
+            imageAlt?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    origin?: {
+      label?: string | null;
+      title?: string | null;
+      text?: string | null;
+      points?:
+        | {
+            value?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+      galleryAlts?:
+        | {
+            value?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    quality?: {
+      label?: string | null;
+      title?: string | null;
+      text?: string | null;
+      cta?: string | null;
+    };
+    partners?: {
+      label?: string | null;
+      title?: string | null;
+      lead?: string | null;
+      buyers?:
+        | {
+            title?: string | null;
+            text?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+      imageAlt?: string | null;
+    };
+    closing?: {
+      title?: string | null;
+      text?: string | null;
+    };
+    credits?: string | null;
+  };
+  photos?: {
+    hero?: (number | null) | Media;
+    intro?: (number | null) | Media;
+    journeyHarvest?: (number | null) | Media;
+    journeyMill?: (number | null) | Media;
+    journeyPressing?: (number | null) | Media;
+    journeyPacking?: (number | null) | Media;
+    origin1?: (number | null) | Media;
+    origin2?: (number | null) | Media;
+    origin3?: (number | null) | Media;
+    partners?: (number | null) | Media;
+    closing?: (number | null) | Media;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "story-page".
+ */
+export interface StoryPage {
+  id: number;
+  content?: {
+    meta?: {
+      title?: string | null;
+      description?: string | null;
+    };
+    hero?: {
+      label?: string | null;
+      title?: string | null;
+      lead?: string | null;
+      imageAlt?: string | null;
+    };
+    tunisia?: {
+      label?: string | null;
+      title?: string | null;
+      paragraphs?:
+        | {
+            value?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+      imageAlt?: string | null;
+    };
+    model?: {
+      label?: string | null;
+      title?: string | null;
+      paragraphs?:
+        | {
+            value?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+      points?:
+        | {
+            value?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    label?: {
+      label?: string | null;
+      title?: string | null;
+      paragraphs?:
+        | {
+            value?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+      imageAlt?: string | null;
+    };
+  };
+  photos?: {
+    hero?: (number | null) | Media;
+    tunisia?: (number | null) | Media;
+    model?: (number | null) | Media;
+    label?: (number | null) | Media;
+    closing?: (number | null) | Media;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "range-page".
+ */
+export interface RangePage {
+  id: number;
+  content?: {
+    meta?: {
+      title?: string | null;
+      description?: string | null;
+    };
+    hero?: {
+      label?: string | null;
+      title?: string | null;
+      lead?: string | null;
+      imageAlt?: string | null;
+    };
+    note?: string | null;
+    specs?: {
+      volume?: string | null;
+      packaging?: string | null;
+      origin?: string | null;
+      originValue?: string | null;
+      grade?: string | null;
+      gradeValue?: string | null;
+      extraction?: string | null;
+      extractionValue?: string | null;
+    };
+    product?: {
+      back?: string | null;
+      others?: string | null;
+      quoteLead?: string | null;
+    };
+  };
+  photos?: {
+    hero?: (number | null) | Media;
+    closing?: (number | null) | Media;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "quality-page".
+ */
+export interface QualityPage {
+  id: number;
+  content?: {
+    meta?: {
+      title?: string | null;
+      description?: string | null;
+    };
+    hero?: {
+      label?: string | null;
+      title?: string | null;
+      lead?: string | null;
+      imageAlt?: string | null;
+    };
+    origin?: {
+      label?: string | null;
+      title?: string | null;
+      paragraphs?:
+        | {
+            value?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+      points?:
+        | {
+            value?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    labelFacts?: {
+      label?: string | null;
+      title?: string | null;
+      lead?: string | null;
+      statement?: string | null;
+      nutritionTitle?: string | null;
+      per?: string | null;
+      rows?:
+        | {
+            label?: string | null;
+            value?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    documents?: {
+      label?: string | null;
+      title?: string | null;
+      paragraphs?:
+        | {
+            value?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+      cta?: string | null;
+    };
+    galleryAlts?:
+      | {
+          value?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  photos?: {
+    hero?: (number | null) | Media;
+    originA?: (number | null) | Media;
+    originB?: (number | null) | Media;
+    documents?: (number | null) | Media;
+    closing?: (number | null) | Media;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "export-page".
+ */
+export interface ExportPage {
+  id: number;
+  content?: {
+    meta?: {
+      title?: string | null;
+      description?: string | null;
+    };
+    hero?: {
+      label?: string | null;
+      title?: string | null;
+      lead?: string | null;
+      imageAlt?: string | null;
+    };
+    buyers?: {
+      label?: string | null;
+      title?: string | null;
+      lead?: string | null;
+    };
+    steps?: {
+      label?: string | null;
+      title?: string | null;
+    };
+    request?: {
+      label?: string | null;
+      title?: string | null;
+      paragraphs?:
+        | {
+            value?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+      items?:
+        | {
+            value?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    terms?: {
+      label?: string | null;
+      title?: string | null;
+      paragraphs?:
+        | {
+            value?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+    };
+  };
+  photos?: {
+    hero?: (number | null) | Media;
+    request?: (number | null) | Media;
+    closing?: (number | null) | Media;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "products".
+ */
+export interface Product {
+  id: number;
+  content?: {
+    'tin-5l'?: {
+      volume?: string | null;
+      material?: string | null;
+      name?: string | null;
+      summary?: string | null;
+    };
+    'tin-2l'?: {
+      volume?: string | null;
+      material?: string | null;
+      name?: string | null;
+      summary?: string | null;
+      imageAlt?: string | null;
+    };
+    'tin-500ml'?: {
+      volume?: string | null;
+      material?: string | null;
+      name?: string | null;
+      summary?: string | null;
+    };
+    'bottle-500ml'?: {
+      volume?: string | null;
+      material?: string | null;
+      name?: string | null;
+      summary?: string | null;
+    };
+    'jar-700ml'?: {
+      volume?: string | null;
+      material?: string | null;
+      name?: string | null;
+      summary?: string | null;
+    };
+  };
+  photos?: {
+    'tin-5l'?: (number | null) | Media;
+    'tin-2l'?: (number | null) | Media;
+    'tin-500ml'?: (number | null) | Media;
+    'bottle-500ml'?: (number | null) | Media;
+    'jar-700ml'?: (number | null) | Media;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "legal-pages".
+ */
+export interface LegalPage {
+  id: number;
+  content?: {
+    notice?: {
+      title?: string | null;
+      description?: string | null;
+      updated?: string | null;
+      sections?:
+        | {
+            title?: string | null;
+            paragraphs?:
+              | {
+                  value?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    privacy?: {
+      title?: string | null;
+      description?: string | null;
+      updated?: string | null;
+      sections?:
+        | {
+            title?: string | null;
+            paragraphs?:
+              | {
+                  value?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+          }[]
+        | null;
+    };
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * Shown in the footer, on the contact page and in the closing bands.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site-settings".
+ */
+export interface SiteSetting {
+  id: number;
+  company?: string | null;
+  email?: string | null;
+  phones?:
+    | {
+        number?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  city?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "home-page_select".
+ */
+export interface HomePageSelect<T extends boolean = true> {
+  content?:
+    | T
+    | {
+        meta?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+            };
+        hero?:
+          | T
+          | {
+              label?: T;
+              title?: T;
+              text?: T;
+              facts?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+              imageAlt?: T;
+            };
+        intro?:
+          | T
+          | {
+              label?: T;
+              title?: T;
+              paragraphs?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+            };
+        process?:
+          | T
+          | {
+              label?: T;
+              title?: T;
+              lead?: T;
+              steps?:
+                | T
+                | {
+                    title?: T;
+                    text?: T;
+                    id?: T;
+                  };
+            };
+        formats?:
+          | T
+          | {
+              label?: T;
+              title?: T;
+              lead?: T;
+              items?:
+                | T
+                | {
+                    slug?: T;
+                    volume?: T;
+                    material?: T;
+                    imageAlt?: T;
+                    id?: T;
+                  };
+            };
+        journey?:
+          | T
+          | {
+              label?: T;
+              title?: T;
+              lead?: T;
+              steps?:
+                | T
+                | {
+                    label?: T;
+                    title?: T;
+                    text?: T;
+                    imageAlt?: T;
+                    id?: T;
+                  };
+            };
+        origin?:
+          | T
+          | {
+              label?: T;
+              title?: T;
+              text?: T;
+              points?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+              galleryAlts?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+            };
+        quality?:
+          | T
+          | {
+              label?: T;
+              title?: T;
+              text?: T;
+              cta?: T;
+            };
+        partners?:
+          | T
+          | {
+              label?: T;
+              title?: T;
+              lead?: T;
+              buyers?:
+                | T
+                | {
+                    title?: T;
+                    text?: T;
+                    id?: T;
+                  };
+              imageAlt?: T;
+            };
+        closing?:
+          | T
+          | {
+              title?: T;
+              text?: T;
+            };
+        credits?: T;
+      };
+  photos?:
+    | T
+    | {
+        hero?: T;
+        intro?: T;
+        journeyHarvest?: T;
+        journeyMill?: T;
+        journeyPressing?: T;
+        journeyPacking?: T;
+        origin1?: T;
+        origin2?: T;
+        origin3?: T;
+        partners?: T;
+        closing?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "story-page_select".
+ */
+export interface StoryPageSelect<T extends boolean = true> {
+  content?:
+    | T
+    | {
+        meta?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+            };
+        hero?:
+          | T
+          | {
+              label?: T;
+              title?: T;
+              lead?: T;
+              imageAlt?: T;
+            };
+        tunisia?:
+          | T
+          | {
+              label?: T;
+              title?: T;
+              paragraphs?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+              imageAlt?: T;
+            };
+        model?:
+          | T
+          | {
+              label?: T;
+              title?: T;
+              paragraphs?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+              points?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+            };
+        label?:
+          | T
+          | {
+              label?: T;
+              title?: T;
+              paragraphs?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+              imageAlt?: T;
+            };
+      };
+  photos?:
+    | T
+    | {
+        hero?: T;
+        tunisia?: T;
+        model?: T;
+        label?: T;
+        closing?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "range-page_select".
+ */
+export interface RangePageSelect<T extends boolean = true> {
+  content?:
+    | T
+    | {
+        meta?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+            };
+        hero?:
+          | T
+          | {
+              label?: T;
+              title?: T;
+              lead?: T;
+              imageAlt?: T;
+            };
+        note?: T;
+        specs?:
+          | T
+          | {
+              volume?: T;
+              packaging?: T;
+              origin?: T;
+              originValue?: T;
+              grade?: T;
+              gradeValue?: T;
+              extraction?: T;
+              extractionValue?: T;
+            };
+        product?:
+          | T
+          | {
+              back?: T;
+              others?: T;
+              quoteLead?: T;
+            };
+      };
+  photos?:
+    | T
+    | {
+        hero?: T;
+        closing?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "quality-page_select".
+ */
+export interface QualityPageSelect<T extends boolean = true> {
+  content?:
+    | T
+    | {
+        meta?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+            };
+        hero?:
+          | T
+          | {
+              label?: T;
+              title?: T;
+              lead?: T;
+              imageAlt?: T;
+            };
+        origin?:
+          | T
+          | {
+              label?: T;
+              title?: T;
+              paragraphs?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+              points?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+            };
+        labelFacts?:
+          | T
+          | {
+              label?: T;
+              title?: T;
+              lead?: T;
+              statement?: T;
+              nutritionTitle?: T;
+              per?: T;
+              rows?:
+                | T
+                | {
+                    label?: T;
+                    value?: T;
+                    id?: T;
+                  };
+            };
+        documents?:
+          | T
+          | {
+              label?: T;
+              title?: T;
+              paragraphs?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+              cta?: T;
+            };
+        galleryAlts?:
+          | T
+          | {
+              value?: T;
+              id?: T;
+            };
+      };
+  photos?:
+    | T
+    | {
+        hero?: T;
+        originA?: T;
+        originB?: T;
+        documents?: T;
+        closing?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "export-page_select".
+ */
+export interface ExportPageSelect<T extends boolean = true> {
+  content?:
+    | T
+    | {
+        meta?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+            };
+        hero?:
+          | T
+          | {
+              label?: T;
+              title?: T;
+              lead?: T;
+              imageAlt?: T;
+            };
+        buyers?:
+          | T
+          | {
+              label?: T;
+              title?: T;
+              lead?: T;
+            };
+        steps?:
+          | T
+          | {
+              label?: T;
+              title?: T;
+            };
+        request?:
+          | T
+          | {
+              label?: T;
+              title?: T;
+              paragraphs?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+              items?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+            };
+        terms?:
+          | T
+          | {
+              label?: T;
+              title?: T;
+              paragraphs?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+            };
+      };
+  photos?:
+    | T
+    | {
+        hero?: T;
+        request?: T;
+        closing?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "products_select".
+ */
+export interface ProductsSelect<T extends boolean = true> {
+  content?:
+    | T
+    | {
+        'tin-5l'?:
+          | T
+          | {
+              volume?: T;
+              material?: T;
+              name?: T;
+              summary?: T;
+            };
+        'tin-2l'?:
+          | T
+          | {
+              volume?: T;
+              material?: T;
+              name?: T;
+              summary?: T;
+              imageAlt?: T;
+            };
+        'tin-500ml'?:
+          | T
+          | {
+              volume?: T;
+              material?: T;
+              name?: T;
+              summary?: T;
+            };
+        'bottle-500ml'?:
+          | T
+          | {
+              volume?: T;
+              material?: T;
+              name?: T;
+              summary?: T;
+            };
+        'jar-700ml'?:
+          | T
+          | {
+              volume?: T;
+              material?: T;
+              name?: T;
+              summary?: T;
+            };
+      };
+  photos?:
+    | T
+    | {
+        'tin-5l'?: T;
+        'tin-2l'?: T;
+        'tin-500ml'?: T;
+        'bottle-500ml'?: T;
+        'jar-700ml'?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "legal-pages_select".
+ */
+export interface LegalPagesSelect<T extends boolean = true> {
+  content?:
+    | T
+    | {
+        notice?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              updated?: T;
+              sections?:
+                | T
+                | {
+                    title?: T;
+                    paragraphs?:
+                      | T
+                      | {
+                          value?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+            };
+        privacy?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              updated?: T;
+              sections?:
+                | T
+                | {
+                    title?: T;
+                    paragraphs?:
+                      | T
+                      | {
+                          value?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+            };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site-settings_select".
+ */
+export interface SiteSettingsSelect<T extends boolean = true> {
+  company?: T;
+  email?: T;
+  phones?:
+    | T
+    | {
+        number?: T;
+        id?: T;
+      };
+  city?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

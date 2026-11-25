@@ -8,9 +8,9 @@ import { ButtonLink } from '@/components/ui/Button'
 import { GlassPanel } from '@/components/ui/GlassPanel'
 import { ProductCard } from '@/components/ui/ProductCard'
 import { SectionHeader } from '@/components/ui/SectionHeader'
-import { homeContent } from '@/content/home'
+import { getContent, getPhotos, getSettings } from '@/cms/get'
+import { blurOf } from '@/lib/pic'
 import { routing, type Locale } from '@/i18n/routing'
-import { siteDefaults } from '@/config/site'
 import tinScene from '../../../../seed/media/tin-2l-mockup-scene.png'
 import tinOlives from '../../../../seed/media/tin-2l-olives-scene.jpg'
 import cartons from '../../../../seed/media/shipping-cartons-mockup.png'
@@ -31,7 +31,7 @@ type Props = { params: Promise<{ locale: Locale }> }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
-  const c = homeContent[locale]
+  const c = await getContent('home', locale)
   const languages = Object.fromEntries(routing.locales.map((l) => [l, `/${l}`]))
   return {
     title: { absolute: `óliven · ${c.meta.title}` },
@@ -45,7 +45,10 @@ export default async function HomePage({ params }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
   const t = await getTranslations()
-  const c = homeContent[locale]
+  const c = await getContent('home', locale)
+  const photo = await getPhotos('home')
+  const productPhotos = await getPhotos('products')
+  const settings = await getSettings(locale)
   const country = locale === 'ar' ? 'تونس' : locale === 'fr' ? 'Tunisie' : 'Tunisia'
 
   return (
@@ -53,7 +56,7 @@ export default async function HomePage({ params }: Props) {
       <SiteHeader overlay />
       <main id="main">
         <Hero
-          image={aerial}
+          image={photo.get('hero', aerial)}
           imageAlt={c.origin.galleryAlts[0]}
           label={c.hero.label}
           title={c.hero.title}
@@ -86,7 +89,7 @@ export default async function HomePage({ params }: Props) {
               </ButtonLink>
             </div>
             <figure className={s.photo} data-reveal="photo">
-              <Image src={oliveTree} alt={c.origin.galleryAlts[1]} sizes="(max-width: 900px) 100vw, 50vw" placeholder="blur" className={s.tall} />
+              <Image src={photo.get('intro', oliveTree)} alt={c.origin.galleryAlts[1]} sizes="(max-width: 900px) 100vw, 50vw" {...blurOf(photo.get('intro', oliveTree))} className={s.tall} />
             </figure>
           </div>
         </section>
@@ -97,7 +100,11 @@ export default async function HomePage({ params }: Props) {
           label={c.journey.label}
           title={c.journey.title}
           lead={c.journey.lead}
-          steps={c.journey.steps.map((step, i) => ({ ...step, image: [picking, sorting, spout, tinOlives][i] ?? tinOlives }))}
+          steps={c.journey.steps.map((step, i) => {
+            const slots = [['journeyHarvest', picking], ['journeyMill', sorting], ['journeyPressing', spout], ['journeyPacking', tinOlives]] as const
+            const [slot, fallback] = slots[i] ?? slots[3]
+            return { ...step, image: photo.get(slot, fallback) }
+          })}
         />
 
         {/* How we work */}
@@ -135,7 +142,10 @@ export default async function HomePage({ params }: Props) {
                   name={f.volume}
                   meta={f.material}
                   placeholderText={t('product.photoToCome')}
-                  image={f.imageAlt ? { src: tinScene.src, alt: f.imageAlt, width: tinScene.width, height: tinScene.height } : undefined}
+                  image={(() => {
+                    const pic = productPhotos.find(f.slug) ?? (f.slug === 'tin-2l' ? tinScene : null)
+                    return pic ? { src: pic.src, alt: f.imageAlt || f.volume, width: pic.width, height: pic.height } : undefined
+                  })()}
                 />
               ))}
             </div>
@@ -162,9 +172,9 @@ export default async function HomePage({ params }: Props) {
           <OriginMarquee
             words={[country, ...c.origin.points]}
             photos={[
-              { src: grovePath, alt: c.origin.galleryAlts[2] },
-              { src: oliveBranch, alt: c.origin.galleryAlts[1] },
-              { src: aerial, alt: c.origin.galleryAlts[0] },
+              { src: photo.get('origin1', grovePath), alt: c.origin.galleryAlts[2] ?? '' },
+              { src: photo.get('origin2', oliveBranch), alt: c.origin.galleryAlts[1] ?? '' },
+              { src: photo.get('origin3', aerial), alt: c.origin.galleryAlts[0] ?? '' },
             ]}
           />
           <div className={s.originSpacer} />
@@ -188,7 +198,7 @@ export default async function HomePage({ params }: Props) {
               </ButtonLink>
             </div>
             <figure className={s.photo} data-reveal="photo">
-              <Image src={cartons} alt={c.partners.imageAlt} sizes="(max-width: 900px) 100vw, 50vw" placeholder="blur" />
+              <Image src={photo.get('partners', cartons)} alt={c.partners.imageAlt} sizes="(max-width: 900px) 100vw, 50vw" {...blurOf(photo.get('partners', cartons))} />
             </figure>
           </div>
         </section>
@@ -209,7 +219,7 @@ export default async function HomePage({ params }: Props) {
 
         {/* Closing call */}
         <section className={s.closing} aria-labelledby="closing-title">
-          <Image src={olivesPile} alt="" fill sizes="100vw" className={s.closingImg} />
+          <Image src={photo.get('closing', olivesPile)} alt="" fill sizes="100vw" className={s.closingImg} />
           <div className={`wrap ${s.closingInner}`}>
             <h2 id="closing-title">{c.closing.title}</h2>
             <p>{c.closing.text}</p>
@@ -218,7 +228,7 @@ export default async function HomePage({ params }: Props) {
                 {t('cta.requestQuotation')}
               </ButtonLink>
               <span className={s.closingPhone} dir="ltr">
-                {siteDefaults.phones[0]}
+                {settings.phones[0]}
               </span>
             </div>
           </div>

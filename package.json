@@ -15,7 +15,8 @@
     "payload": "payload",
     "generate:types": "payload generate:types",
     "generate:importmap": "payload generate:importmap",
-    "test:e2e": "playwright test --trace off"
+    "test:e2e": "playwright test --trace off",
+    "seed:content": "payload run scripts/seed-content.ts"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "3.92.1",

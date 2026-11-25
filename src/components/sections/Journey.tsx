@@ -1,10 +1,11 @@
 'use client'
 
-import Image, { type StaticImageData } from 'next/image'
+import Image from 'next/image'
+import { blurOf, type Pic } from '@/lib/pic'
 import { useEffect, useRef, useState } from 'react'
 import s from './Journey.module.css'
 
-type Step = { label: string; title: string; text: string; imageAlt: string; image: StaticImageData }
+type Step = { label: string; title: string; text: string; imageAlt: string; image: Pic }
 type Props = { id: string; label: string; title: string; lead: string; steps: Step[] }
 
 /**
@@ -43,7 +44,7 @@ export function Journey({ id, label, title, lead, steps }: Props) {
                 sizes="(max-width: 900px) 0px, 45vw"
                 className={s.stageImg}
                 data-on={i === active || undefined}
-                placeholder="blur"
+                {...blurOf(step.image)}
               />
             ))}
             <span className={s.counter}>
@@ -69,7 +70,7 @@ export function Journey({ id, label, title, lead, steps }: Props) {
                 data-on={i === active || undefined}
               >
                 <figure className={s.inlinePhoto}>
-                  <Image src={step.image} alt={step.imageAlt} sizes="(max-width: 900px) 100vw, 1px" placeholder="blur" />
+                  <Image src={step.image} alt={step.imageAlt} sizes="(max-width: 900px) 100vw, 1px" {...blurOf(step.image)} />
                 </figure>
                 <span className={s.stepLabel}>{step.label}</span>
                 <h3>{step.title}</h3>

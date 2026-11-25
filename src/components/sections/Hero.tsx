@@ -1,10 +1,11 @@
-import Image, { type StaticImageData } from 'next/image'
+import Image from 'next/image'
+import { blurOf, type Pic } from '@/lib/pic'
 import type { ReactNode } from 'react'
 import { GlassPanel } from '@/components/ui/GlassPanel'
 import styles from './Hero.module.css'
 
 type Props = {
-  image: StaticImageData | { src: string; width: number; height: number }
+  image: Pic
   imageAlt: string
   label: string
   title: string
@@ -22,7 +23,7 @@ type Props = {
 export function Hero({ image, imageAlt, label, title, text, facts, actions, titleId = 'hero-title', bigWord, badge }: Props) {
   return (
     <section className={styles.hero} aria-labelledby={titleId}>
-      <Image src={image} alt={imageAlt} fill priority sizes="100vw" className={styles.img} placeholder={'blurDataURL' in image ? 'blur' : 'empty'} />
+      <Image src={image} alt={imageAlt} fill priority sizes="100vw" className={styles.img} {...blurOf(image)} />
       {bigWord ? (
         <p className={styles.bigWord} aria-hidden="true">
           {bigWord}

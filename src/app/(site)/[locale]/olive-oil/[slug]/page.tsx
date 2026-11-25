@@ -8,12 +8,12 @@ import { ButtonLink } from '@/components/ui/Button'
 import { ProductCard } from '@/components/ui/ProductCard'
 import { SpecList } from '@/components/ui/SpecList'
 import { Link } from '@/i18n/navigation'
-import { rangePage } from '@/content/pages'
-import { productContent, productPhoto, productSlugs, type ProductSlug } from '@/content/products'
+import { productSlugs, type ProductSlug } from '@/content/products'
+import { getContent, getProductPhotos } from '@/cms/get'
+import { blurOf } from '@/lib/pic'
 import { routing, type Locale } from '@/i18n/routing'
 import { pageMetadata } from '@/lib/metadata'
 import s from '@/components/sections/Page.module.css'
-import tin2l from '../../../../../../seed/media/tin-2l-mockup-scene.png'
 
 type Props = { params: Promise<{ locale: Locale; slug: string }> }
 
@@ -26,8 +26,9 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params
   if (!isSlug(slug)) return {}
-  const p = productContent[locale][slug]
-  return pageMetadata(locale, `/olive-oil/${slug}`, p.name, p.summary, productPhoto[slug] ? tin2l : undefined)
+  const p = (await getContent('products', locale))[slug]
+  const pic = (await getProductPhotos())(slug)
+  return pageMetadata(locale, `/olive-oil/${slug}`, p.name, p.summary, pic ?? undefined)
 }
 
 export default async function ProductPage({ params }: Props) {
@@ -35,8 +36,10 @@ export default async function ProductPage({ params }: Props) {
   if (!isSlug(slug)) notFound()
   setRequestLocale(locale)
   const t = await getTranslations()
-  const c = rangePage[locale]
-  const products = productContent[locale]
+  const c = await getContent('range', locale)
+  const products = await getContent('products', locale)
+  const productPic = await getProductPhotos()
+  const main = productPic(slug)
   const p = products[slug]
 
   return (
@@ -50,8 +53,8 @@ export default async function ProductPage({ params }: Props) {
             </Link>
             <div className={s.split} style={{ marginTop: 'var(--s-4)' }}>
               <figure className={s.productMedia}>
-                {productPhoto[slug] && p.imageAlt ? (
-                  <Image src={tin2l} alt={p.imageAlt} sizes="(max-width: 900px) 100vw, 50vw" placeholder="blur" priority />
+                {main ? (
+                  <Image src={main} alt={p.imageAlt || p.name} sizes="(max-width: 900px) 100vw, 50vw" {...blurOf(main)} priority />
                 ) : (
                   <div className={s.placeholder}>
                     <Image src="/brand/olive-branch-illustration.png" alt="" width={320} height={240} className={s.placeholderImg} />
@@ -96,7 +99,10 @@ export default async function ProductPage({ params }: Props) {
                       name={q.volume}
                       meta={q.material}
                       placeholderText={t('product.photoToCome')}
-                      image={productPhoto[o] && q.imageAlt ? { src: tin2l.src, alt: q.imageAlt, width: tin2l.width, height: tin2l.height } : undefined}
+                      image={(() => {
+                        const pic = productPic(o)
+                        return pic ? { src: pic.src, alt: q.imageAlt || q.name, width: pic.width, height: pic.height } : undefined
+                      })()}
                     />
                   )
                 })}

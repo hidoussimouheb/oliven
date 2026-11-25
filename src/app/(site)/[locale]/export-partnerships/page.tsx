@@ -7,8 +7,9 @@ import { CtaBand } from '@/components/sections/CtaBand'
 import { PageHero } from '@/components/sections/PageHero'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { photoCredits } from '@/content/credits'
-import { homeContent } from '@/content/home'
 import { exportPage } from '@/content/pages'
+import { getContent, getPhotos } from '@/cms/get'
+import { blurOf } from '@/lib/pic'
 import type { Locale } from '@/i18n/routing'
 import { pageMetadata } from '@/lib/metadata'
 import s from '@/components/sections/Page.module.css'
@@ -20,7 +21,7 @@ type Props = { params: Promise<{ locale: Locale }> }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
-  const c = exportPage[locale]
+  const c = await getContent('export', locale)
   return pageMetadata(locale, '/export-partnerships', c.meta.title, c.meta.description, cartons)
 }
 
@@ -28,14 +29,15 @@ export default async function ExportPage({ params }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
   const t = await getTranslations()
-  const c = exportPage[locale]
-  const home = homeContent[locale]
+  const c = await getContent('export', locale)
+  const home = await getContent('home', locale)
+  const photo = await getPhotos('export')
 
   return (
     <>
       <SiteHeader overlay />
       <main id="main">
-        <PageHero image={cartons} imageAlt={c.hero.imageAlt} label={c.hero.label} title={c.hero.title} lead={c.hero.lead} />
+        <PageHero image={photo.get('hero', cartons)} imageAlt={c.hero.imageAlt} label={c.hero.label} title={c.hero.title} lead={c.hero.lead} />
 
         <section className={s.section} aria-labelledby="buyers-title">
           <div className="wrap">
@@ -87,12 +89,12 @@ export default async function ExportPage({ params }: Props) {
               </div>
             </div>
             <figure className={s.photo} data-reveal="photo">
-              <Image src={stationery} alt="" sizes="(max-width: 900px) 100vw, 50vw" placeholder="blur" />
+              <Image src={photo.get('request', stationery)} alt="" sizes="(max-width: 900px) 100vw, 50vw" {...blurOf(photo.get('request', stationery))} />
             </figure>
           </div>
         </section>
 
-        <CtaBand title={home.closing.title} text={home.closing.text} cta={t('cta.requestQuotation')} image={olivesPile} />
+        <CtaBand title={home.closing.title} text={home.closing.text} cta={t('cta.requestQuotation')} image={photo.get('closing', olivesPile)} />
       </main>
       <SiteFooter credits={photoCredits(locale, ['John Cameron'])} />
     </>

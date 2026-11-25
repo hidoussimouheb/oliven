@@ -1,9 +1,10 @@
-import Image, { type StaticImageData } from 'next/image'
+import Image from 'next/image'
+import { blurOf, type Pic } from '@/lib/pic'
 import styles from './OriginMarquee.module.css'
 
 type Props = {
   words: string[]
-  photos: { src: StaticImageData; alt: string }[]
+  photos: { src: Pic; alt: string }[]
 }
 
 /**
@@ -39,7 +40,7 @@ export function OriginMarquee({ words, photos }: Props) {
             alt={i === 0 ? p.alt : ''}
             aria-hidden={i === 0 ? undefined : true}
             sizes="(max-width: 768px) 70vw, 24rem"
-            placeholder="blur"
+            {...blurOf(p.src)}
             className={styles.photo}
             style={{ animationDelay: `${i * 5}s` }}
           />
