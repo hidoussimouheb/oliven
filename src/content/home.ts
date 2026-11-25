@@ -78,7 +78,7 @@ export const homeContent: Record<Locale, HomeContent> = {
         { label: "Harvest", title: "Picked in season", text: "Olives are picked across Tunisia from late autumn into winter, the main season for the crop.", imageAlt: "Olives being picked by hand from a tree" },
         { label: "At the mill", title: "Cleaned before pressing", text: "At the mill the olives are washed and the leaves are taken out before pressing.", imageAlt: "Freshly harvested olives being sorted by hand" },
         { label: "Pressing", title: "Mechanical extraction only", text: "Our partner mills in Tunisia extract the oil from the olives by mechanical means only.", imageAlt: "Olive oil running from a steel spout" },
-        { label: "Packing", title: "Filled under the óliven label", text: "The oil is filled into óliven tins and bottles in Tunisia, labelled and packed for export.", imageAlt: "óliven 2 litre tin on a wooden table beside olive branches" },
+        { label: "Packing", title: "Filled under the óliven label", text: "The oil is filled into óliven tins and bottles in Tunisia, labelled and packed for export.", imageAlt: "óliven 2 litre tin lying on a bed of green olives and olive leaves" },
       ],
     },
     origin: {
@@ -164,7 +164,7 @@ export const homeContent: Record<Locale, HomeContent> = {
         { label: "Récolte", title: "Cueillies en saison", text: "Les olives sont cueillies dans toute la Tunisie de la fin de l'automne jusqu'à l'hiver, la grande saison de la récolte.", imageAlt: "Cueillette d'olives à la main sur un arbre" },
         { label: "Au moulin", title: "Nettoyées avant le pressage", text: "Au moulin, les olives sont lavées et débarrassées de leurs feuilles avant le pressage.", imageAlt: "Tri à la main d'olives fraîchement récoltées" },
         { label: "Pressage", title: "Extraction uniquement mécanique", text: "Nos moulins partenaires en Tunisie extraient l'huile des olives uniquement par des procédés mécaniques.", imageAlt: "Huile d'olive coulant d'un bec en acier" },
-        { label: "Conditionnement", title: "Mise en bidon sous la marque óliven", text: "L'huile est mise en bidons et en bouteilles óliven en Tunisie, étiquetée et emballée pour l'export.", imageAlt: "Bidon óliven de 2 litres sur une table en bois, à côté de branches d'olivier" },
+        { label: "Conditionnement", title: "Mise en bidon sous la marque óliven", text: "L'huile est mise en bidons et en bouteilles óliven en Tunisie, étiquetée et emballée pour l'export.", imageAlt: "Bidon óliven de 2 litres posé sur des olives vertes et des feuilles d'olivier" },
       ],
     },
     origin: {
@@ -250,7 +250,7 @@ export const homeContent: Record<Locale, HomeContent> = {
         { label: "الجني", title: "يُجنى في موسمه", text: "يُجنى الزيتون في مختلف أنحاء تونس من أواخر الخريف حتى الشتاء، وهو الموسم الرئيسي للمحصول.", imageAlt: "جني الزيتون باليد من الشجرة" },
         { label: "في المعصرة", title: "يُنظَّف قبل العصر", text: "في المعصرة يُغسل الزيتون وتُزال أوراقه قبل العصر.", imageAlt: "فرز زيتون مقطوف حديثًا باليد" },
         { label: "العصر", title: "استخراج ميكانيكي فقط", text: "تستخرج معاصرنا الشريكة في تونس الزيت من الزيتون بوسائل ميكانيكية فقط.", imageAlt: "زيت زيتون يسيل من صنبور معدني" },
-        { label: "التعبئة", title: "يُعبّأ تحت علامة أوليفن", text: "يُعبّأ الزيت في علب وقوارير أوليفن في تونس، ويوضع عليه الملصق، ثم يُغلَّف للتصدير.", imageAlt: "علبة أوليفن سعة 2 لتر على طاولة خشبية بجانب أغصان الزيتون" },
+        { label: "التعبئة", title: "يُعبّأ تحت علامة أوليفن", text: "يُعبّأ الزيت في علب وقوارير أوليفن في تونس، ويوضع عليه الملصق، ثم يُغلَّف للتصدير.", imageAlt: "علبة أوليفن سعة 2 لتر موضوعة على زيتون أخضر وأوراق زيتون" },
       ],
     },
     origin: {

@@ -12,6 +12,7 @@ import { homeContent } from '@/content/home'
 import { routing, type Locale } from '@/i18n/routing'
 import { siteDefaults } from '@/config/site'
 import tinScene from '../../../../seed/media/tin-2l-mockup-scene.png'
+import tinOlives from '../../../../seed/media/tin-2l-olives-scene.jpg'
 import cartons from '../../../../seed/media/shipping-cartons-mockup.png'
 import aerial from '../../../../seed/media/stock/tunisia-aerial-grove.jpg'
 import oliveTree from '../../../../seed/media/stock/tunisia-olive-tree.jpg'
@@ -96,7 +97,7 @@ export default async function HomePage({ params }: Props) {
           label={c.journey.label}
           title={c.journey.title}
           lead={c.journey.lead}
-          steps={c.journey.steps.map((step, i) => ({ ...step, image: [picking, sorting, spout, tinScene][i] ?? tinScene }))}
+          steps={c.journey.steps.map((step, i) => ({ ...step, image: [picking, sorting, spout, tinOlives][i] ?? tinOlives }))}
         />
 
         {/* How we work */}
